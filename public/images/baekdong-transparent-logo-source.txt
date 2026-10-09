@@ -1,0 +1,6 @@
+사용자 제공: 백동초등학교 로고(ChatGPT Image).png
+배경 처리: ImageGen 기본 도구
+프롬프트 요약: 별 바깥의 흰 배경만 투명하게 제거. 별·원·색상·비율과 내부 흰색 H 유지.
+실행 프롬프트: Use case: precise-object-edit. Asset type: supplied Baekdong Elementary School emblem for website header. Edit target: the referenced image. Remove ONLY the white background outside the outer navy five-point star silhouette, making it genuinely transparent. Preserve the supplied emblem exactly: navy five-point star, pink outer ring, magenta interior, and the white H-shaped central symbol. Keep the white H opaque, do not remove white pixels within the emblem. Keep geometry, colors, gradients, sharp clean edges, symmetry and proportions unchanged. No redesign, no new text, no shadow, no outline, no checkerboard baked into the image. Fit the complete emblem with a small transparent margin around it.
+결과: baekdong-school-logo-transparent.png
+작업일: 2026-10-09

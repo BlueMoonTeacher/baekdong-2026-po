@@ -12,3 +12,5 @@ api-key.txt
 수업 웹앱 프로젝트/source/
 functions/node_modules/
 artifacts/
+# Large original decks stay local until the planned PPT preparation/upload step.
+/추가자료/2차년도 PPT/

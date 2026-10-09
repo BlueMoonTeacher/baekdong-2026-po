@@ -1,8 +1,19 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {hasConflict,classStats,safeUrl,monthCells} from '../src/domain.js';
+import {hasConflict,classStats,safeUrl,monthCells,defaultClasses,activeClasses,COMMON_PADLET_URL,isMasterUser} from '../src/domain.js';
 const lessons=JSON.parse(fs.readFileSync(new URL('../src/curriculum.json',import.meta.url)));
+test('the current grade keeps exactly three stable classroom IDs and existing teacher settings',()=>{
+ assert.equal(defaultClasses.length,3);
+ const rows=activeClasses([{id:'class-2',name:'6학년 2반',teacher:'담당',padlet:'https://padlet.com/class2'},{id:'class-4',name:'옛 반'}]);
+ assert.deepEqual(rows.map(c=>c.id),['class-1','class-2','class-3']);assert.equal(rows[1].teacher,'담당');
+ assert.ok(rows.every(c=>c.padlet===COMMON_PADLET_URL));
+});
+test('only the verified master Google account receives administrator controls',()=>{
+ const user={email:'kth9302@gmail.com',emailVerified:true,providerData:[{providerId:'google.com'}]};
+ assert.equal(isMasterUser(user),true);assert.equal(isMasterUser({...user,email:'teacher@example.com'}),false);
+ assert.equal(isMasterUser({...user,emailVerified:false}),false);assert.equal(isMasterUser({...user,providerData:[{providerId:'password'}]}),false);
+});
 test('all 30 periods occur once in the requested project order',()=>{
  assert.deepEqual(lessons.map(l=>l.number),Array.from({length:30},(_,i)=>i+1));
  assert.match(lessons[10].title,/인터뷰/);assert.equal(lessons[10].project,2);

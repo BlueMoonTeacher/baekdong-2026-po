@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-브라우저에서 http://127.0.0.1:5173/explore 를 엽니다. 로컬에서는 공개 인구 저장본을 먼저 표시합니다. 실제 갱신 서버는 운영 사이트에 연결되어 있습니다.
+브라우저에서 http://127.0.0.1:5173/explore 를 엽니다. 로컬에서는 공개 인구 저장본을 먼저 표시한 뒤 Vite 프록시를 통해 운영 `/api/population`을 호출합니다. 개발 서버와 `npm run preview` 모두 같은 API를 사용합니다. 호출에 실패하면 저장본과 연결 상태를 표시하며, 저장본도 없으면 다시 불러오기 안내를 표시합니다.
 
 화면은 `src/explorer/Explorer.jsx`, 디자인은 `src/explorer/explorer.css`, 가공한 정책 자료는 `src/explorer/policies.json`, 실제 행정경계는 `src/explorer/map.json`에 있습니다. 원문 PDF와 공개 인구 저장본은 `public/explore/`에 있습니다.
 

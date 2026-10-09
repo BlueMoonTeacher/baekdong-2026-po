@@ -2,9 +2,15 @@ rules_version = '2';
 service cloud.firestore {
  match /databases/{database}/documents {
   function signed() { return request.auth != null && request.auth.token.email_verified == true && request.auth.token.firebase.sign_in_provider == 'google.com'; }
-  function member() { return signed() && exists(/databases/$(database)/documents/members/$(request.auth.token.email)); }
-  function admin() { return member() && get(/databases/$(database)/documents/members/$(request.auth.token.email)).data.role == 'admin'; }
+  function admin() { return signed() && request.auth.token.email == 'kth9302@gmail.com'; }
   function stamp() { return request.resource.data.updatedBy == request.auth.uid && request.resource.data.updatedAt == request.time; }
+  function fixedClasses() {
+   let rows=request.resource.data.classes;
+   let padlet='https://padlet.com/hermione7531/2-6-pyt1a86nrhhp76wx';
+   return rows is list && rows.size()==3
+    && rows[0].id=='class-1' && rows[1].id=='class-2' && rows[2].id=='class-3'
+    && rows[0].padlet==padlet && rows[1].padlet==padlet && rows[2].padlet==padlet;
+  }
   match /members/{email} {
    allow get: if signed() && (request.auth.token.email == email || admin());
    allow list: if admin();
@@ -13,15 +19,15 @@ service cloud.firestore {
   }
   match /settings/general {
    allow read: if true;
-   allow write: if admin() && request.resource.data.keys().hasOnly(['classes','updatedBy','updatedAt']) && request.resource.data.classes is list && request.resource.data.classes.size() > 0 && request.resource.data.classes.size() <= 20 && stamp();
+   allow write: if admin() && request.resource.data.keys().hasOnly(['classes','updatedBy','updatedAt']) && fixedClasses() && stamp();
   }
   match /events/{id} {
-   allow read: if true;
+   allow read: if signed();
    allow create,update: if signed() && request.resource.data.keys().hasOnly(['classId','lessonId','date','time','endTime','note','updatedBy','updatedAt']) && request.resource.data.classId is string && request.resource.data.lessonId.matches('^([1-9]|[12][0-9]|30)$') && request.resource.data.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$') && request.resource.data.time.matches('^([01][0-9]|2[0-3]):[0-5][0-9]$') && request.resource.data.endTime.matches('^([01][0-9]|2[0-3]):[0-5][0-9]$') && request.resource.data.endTime > request.resource.data.time && request.resource.data.note is string && request.resource.data.note.size() <= 3000 && stamp();
    allow delete: if signed();
   }
   match /progress/{id} {
-   allow read: if true;
+   allow read: if signed();
    allow create,update: if signed() && request.resource.data.keys().hasOnly(['classId','number','activity','padlet','worksheet','updatedBy','updatedAt']) && request.resource.data.classId is string && request.resource.data.number is int && request.resource.data.number >= 1 && request.resource.data.number <= 30 && id == request.resource.data.classId + '_' + string(request.resource.data.number) && (!('activity' in request.resource.data) || request.resource.data.activity is bool) && (!('padlet' in request.resource.data) || request.resource.data.padlet is bool) && (!('worksheet' in request.resource.data) || request.resource.data.worksheet is bool) && stamp();
   }
   match /discussions/{id} {

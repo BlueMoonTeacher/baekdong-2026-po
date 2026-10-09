@@ -1,0 +1,221 @@
+/* Warm paper, cyan accents, and orange/coral details inspired by the reference. */
+:root{background:#fffcf6;color:#1b2830;--green:#087f98;--dark:#192730;--border:#dce8e9;--muted:#637782;--orange:#ec834d}
+body{background:radial-gradient(ellipse at 0 15%,#fff7d780,transparent 45%),radial-gradient(ellipse at 100% 10%,#dff5f680,transparent 40%),#fffcf6}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #0da7c4;outline-offset:3px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.public-app .school-header{padding:23px max(30px,calc((100vw - 1440px)/2));background:#fffcf7;border-bottom:0}
+.school-title h1{font-size:1.7rem;letter-spacing:-.06em;color:#192730;gap:13px}
+.school-title h1 small{font-size:.85rem;font-weight:500;letter-spacing:-.02em;color:#586974}
+.school-title h1>span{background:#edf7f7;color:#147d90;font-size:.75rem;padding:6px 10px;border-radius:30px}
+.title-flower{color:#07aec7;font-size:2.65rem}
+.viewing-label,.signed-name,.editing-label{color:#566975}
+.login-button{border-color:#cfdee2!important;border-radius:30px!important;color:#253640}
+.public-app .school-nav{padding:0 max(30px,calc((100vw - 1440px)/2));background:#fffefa;border-color:#e0eaec;gap:12px}
+.school-nav nav{gap:25px;align-items:center}
+.school-nav nav>button{font-size:.81rem;font-weight:600;color:#5a6b75;padding:17px 0}
+.school-nav nav>button.active,.school-nav nav>button:hover{color:#172a33}
+.school-nav nav>button.active:after{height:4px;background:#ffac28}
+.school-nav nav .explorer-nav-link{background:#eaf8fa;border-color:#c2e6ec;color:#087c95;border-radius:30px;font-size:.77rem;margin-left:0}
+.shared-state{color:#587481;font-size:.7rem}.nav-count{color:#a64e33;background:#ffede1}
+.semester-banner{display:flex;justify-content:center;gap:18px;background:linear-gradient(100deg,#ff9749,#f17b97);color:#fff;padding:12px 24px;font-size:.79rem;letter-spacing:-.02em}
+.semester-banner b{font-weight:700}.semester-banner>span{opacity:.96}
+.public-app main{max-width:1500px;margin:0 auto;padding:38px 30px 48px}
+.teacher-hero{display:grid;grid-template-columns:1.25fr 1fr;gap:55px;align-items:center;position:relative;isolation:isolate;padding:48px 56px;background:#fff;border:2px solid #b8e8ef;border-radius:30px;box-shadow:0 20px 45px #26323c0c;margin-bottom:42px;overflow:hidden}
+.teacher-hero:before{content:'';position:absolute;z-index:-1;width:290px;height:290px;right:-110px;top:-160px;border-radius:50%;background:linear-gradient(140deg,#ffe478,#ffbb8a)}
+.teacher-hero:after{content:'';position:absolute;z-index:-1;width:230px;height:230px;left:-125px;bottom:-170px;border-radius:50%;background:#b9e4ea}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;color:#00849f;font-weight:700;font-size:.8rem}
+.hero-eyebrow i{width:23px;height:4px;background:#08aec9;border-radius:5px}
+.hero-copy h2{color:#192730;font-size:clamp(1.9rem,3.1vw,3rem);font-weight:800;line-height:1.38;letter-spacing:-.075em;margin:18px 0 20px;word-break:keep-all}
+.hero-copy mark{background:linear-gradient(transparent 69%,#ffe363 69%,#ffe363 94%,transparent 94%);color:inherit;padding:0 2px}
+.hero-copy p{color:#556b78;line-height:1.95;font-size:.9rem}
+.hero-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:25px}
+.primary{background:#1c2b34;color:white;border-radius:30px;box-shadow:none;font-weight:600}.primary:hover{background:#087f98}
+.public-app button.primary,.public-app button.secondary,.public-app a.secondary{border-radius:30px}
+.secondary{background:#fff;color:#334b59;border-color:#d6e2e5!important;border-radius:30px}.secondary:hover{background:#f0fafb;border-color:#90d4e1!important}
+.hero-actions .primary,.hero-actions .secondary{padding:13px 20px;font-size:.8rem}
+.hero-facts{display:flex;gap:26px;border-top:1px dashed #e1e9eb;margin-top:29px;padding-top:20px}
+.hero-facts span{font-size:.68rem;color:#647784}.hero-facts b{display:block;font-size:1.45rem;font-weight:800;color:#1e2d36;margin-bottom:3px}
+.hero-plan{background:#fff;border:1px solid #e0e9eb;border-radius:20px;padding:24px;box-shadow:0 12px 30px #142f4110;transform:rotate(-1deg)}
+.hero-plan-top{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;font-size:.78rem;color:#273c48;margin-bottom:18px}
+.hero-plan .class-select{font-size:.73rem;padding:3px 8px;border-radius:30px;gap:5px;background:#f5fafb}
+.hero-plan .class-select select{font-size:.74rem;padding:5px;margin:0;color:#3c5968}
+.deadline-display{display:flex;gap:12px;align-items:center;background:#fff7df;border-radius:13px;padding:19px 16px;color:#a36a1b;margin-bottom:14px}
+.deadline-display>div>small{font-size:.65rem;color:#8a6b38}.deadline-display strong{display:block;font-size:1.7rem;letter-spacing:-.06em;color:#25353e;margin-top:5px;line-height:1.2}
+.deadline-display strong small{font-size:.7rem;font-weight:500;color:#6c6759;margin-left:9px;letter-spacing:0}
+.deadline-star{font-size:2.4rem;color:#ffbe34;margin-left:auto;line-height:1}
+.hero-project{display:flex;align-items:center;gap:12px;padding:15px 10px;border-bottom:1px solid #e9eff0;color:var(--pcolor)}
+.hero-project-number{display:grid;place-items:center;background:var(--pbg);border-radius:11px;width:38px;height:43px;font-size:1rem;font-weight:800}
+.hero-project>div{flex:1}.hero-project b{color:#314955;font-size:.8rem}.hero-project small{display:block;color:#647984;font-size:.65rem;margin-top:4px}
+.hero-project .progress-track{height:4px;display:block;width:100%;margin-top:9px}.hero-project .progress-track i{background:var(--pcolor)}
+.hero-project>svg{color:var(--pcolor);opacity:.6}.hero-plan-note{display:flex;align-items:center;gap:7px;margin-top:17px;color:#69818d;font-size:.66rem;line-height:1.7}
+.note-dot{width:6px;height:6px;background:#0a9bab;border-radius:50%;flex-shrink:0}
+.planner-top{margin-bottom:20px}.sheet-label,.eyebrow{color:#00839b;font-size:.73rem;font-weight:600}
+.planner-top h2{font-size:1.3rem;color:#243640;font-weight:700}.plan-downloads .secondary{color:#4a6471;font-size:.75rem}
+.p1{--pcolor:#057b92;--pbg:#e9f7f9}.p2{--pcolor:#ae5c24;--pbg:#fff3e5}.p3{--pcolor:#a24668;--pbg:#fff0f5}
+.journey-tabs{gap:15px;margin-bottom:22px}.journey-tabs>button{min-height:96px;border-radius:17px;background:#eefafb;border-color:#cbe7ed;color:#086f86;padding:18px 22px}
+.journey-tabs>button:nth-child(2){background:#fff6e8;border-color:#f1dfc7;color:#a95820}
+.journey-tabs>button:nth-child(3){background:#fff1f5;border-color:#f0d9e2;color:#a34665}
+.journey-tabs>button.active{outline:2px solid currentColor;outline-offset:2px}.journey-tabs b{font-size:.85rem;font-weight:700}.journey-tabs small{font-size:.65rem;opacity:1;line-height:1.65}
+.journey-number{border:0;background:#ffffffb0;border-radius:10px;width:35px;height:40px}.journey-symbol{opacity:.38}
+.planner-controls>span{color:#667e8a;font-size:.75rem}.planner-controls .class-select{color:#355f70;border-color:#d3e4e7;border-radius:30px}.planner-controls .class-select select{color:#3c6577}
+.curriculum-scroll{border-color:#d2e5e9;border-radius:16px;box-shadow:0 5px 20px #1e425905}
+.curriculum-table{color:#344e5c;font-size:.83rem;min-width:1120px}
+.curriculum-table th,.curriculum-table td{border-color:#e0eaed;padding:16px 13px;line-height:1.8}
+.curriculum-table thead{background:#eef6f8;color:#45636f}.curriculum-table thead th{font-size:.76rem;padding:16px 7px}.curriculum-table thead th:nth-child(6){color:#257d90}
+.curriculum-table .project-name-cell,.p2 .project-name-cell,.p3 .project-name-cell{background:var(--pbg);padding:22px 12px}
+.project-name-cell>small,.project-range{color:var(--pcolor)}
+.project-name-cell b,.p2 .project-name-cell b,.p3 .project-name-cell b{color:var(--pcolor);font-size:.9rem;font-weight:700}
+.worksheet-project-number,.p2 .worksheet-project-number,.p3 .worksheet-project-number{background:var(--pcolor);box-shadow:none;outline:0;border-radius:9px;width:34px;height:38px}
+.curriculum-table .elements-cell,.p2 .elements-cell,.p3 .elements-cell{background:#fcfdfd;color:#546e7a!important;font-size:.76rem}
+.curriculum-table .topic-cell,.p2 .topic-cell,.p3 .topic-cell{background:#fff;color:#46616f;font-size:.8rem}
+.activity-content{padding:16px 20px!important}.activity-content>button{color:#2e4856;font-size:.84rem;font-weight:500;line-height:1.8}.activity-content>button:hover{color:#07829b}
+.period-cell{color:#3b6779}.future-cell>span,.output-cell{color:#607785;font-size:.75rem}.materials-cell button{background:#edf7f9;color:#147d94;border-radius:6px}
+.unregistered{color:#728692}.row-status{color:#37798b}.candidate-label{background:#fff1d8;color:#956021}
+.project-start:not(:first-child)>*{border-top:2px solid #bedde3!important}
+.class-strip{border-color:#dfe9eb;border-radius:17px;padding:26px}.class-strip h2{color:#2a4654}.class-strip b{color:#5d7683}.class-strip strong{color:#1c8298}.class-strip strong small{color:#748994}
+.class-strip>button{border-color:#e1ecef}.progress-track{background:#e6f0f2}.progress-track i{background:#16a5bd}
+.panel,.discussion-card,.class-progress-hero{border-color:#dfe9eb;border-radius:17px;background:#fff}.panel-head h2,.discussion-card h3,.month-switch h2,.class-progress-hero h2,.resource-card h3{color:#2d4a59}
+.panel-head p,.discussion-preview .empty-inline,.discussion-card p,.discussion-card small,.resource-card p,.resource-meta{color:#67808e}
+.discussion-row,.discussion-card footer,.resource-actions{border-color:#e2ecef}.discussion-row b{color:#355667}.text-button{color:#087c94}
+.badge.open{background:#fff0df;color:#a85e26}.badge.agreed{background:#e8f7fa;color:#087b93}.badge.done{background:#eaf4ef;color:#427863}
+.class-select,.search{color:#487283;border-color:#d4e5e9}.class-select select,.search input{color:#365d70}
+.project-tabs{background:#edf5f7;border-radius:30px}.project-tabs button{color:#5c7b8b}.project-tabs button.active{color:#096f86;border-radius:30px}
+.public-app .page-heading h2{color:#253f4d;font-size:1.65rem}.public-app .page-heading p{color:#647d8b}.page-actions{display:flex;gap:9px;flex-wrap:wrap}
+.checklist-head{background:#eff7f8;color:#587685}.checklist-row{border-color:#e4edf0}.checklist-row.completed{background:#f5faf9}.lesson-label small{color:#6d8793}.lesson-label b{color:#2c4a5a}
+.check-cell>span{border-color:#c5dde2}.check-cell input:checked+span{background:#058ca6;border-color:#058ca6}.schedule-cell{color:#14798f}.class-progress-hero .eyebrow{color:#698592}
+.read-note{background:#edf8fa;color:#437d8c}.progress-tools{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:0 0 20px;color:#67828e;font-size:.76rem}.progress-tools .secondary{font-size:.75rem}
+.calendar-cell{border-color:#e6eef0}.calendar-cell.selected{background:#f0fafc;box-shadow:inset 0 0 0 1px #9bd6e1}.day-button.is-today{background:#078da7}.calendar-legend,.weekdays{color:#678391;border-color:#e5edf0}.calendar-event{color:var(--pcolor);background:var(--pbg)}
+.date-tile{background:#edf8fa;color:#078298}.event-card{border-color:#e4edef}.event-card:hover{background:#f5fafb}.event-card>div:last-child>small{color:#6d8794}.event-card>div:last-child>b{color:#36596c}
+.empty b{color:#637d8c}.empty p{color:#738c98}.empty>svg{color:#9bbdc8}.file-icon{background:#eef8fa;color:#138499}.resource-note,.decision{background:#edf8fa;color:#458293}.resource-note p{color:#597f90}
+.modal-backdrop{background:#182c3d66}.modal{border-radius:22px;box-shadow:0 25px 100px #1a314c30;width:min(800px,100%)}.modal-head{border-color:#e2ecef}.modal-head h2{color:#2d4d5e}.modal-head button{color:#6e8c99}
+.modal-body form label,legend{color:#456676}.modal-body input:not([type=checkbox]),.modal-body select,.modal-body textarea{border-color:#cedfe4;color:#304f60;border-radius:9px}
+.class-choices label:has(input:checked){background:#eaf8fa;border-color:#92cfda;color:#06748c}.class-choices input{accent-color:#088aa3}
+.objective{background:#f0f8fa;color:#507b8d}.objective>b,.lesson-detail h3,.lesson-body h4,.lesson-body>b{color:#26758c}.objective small,.lesson-body h4 span{color:#698594}.lesson-body{color:#557281}.lesson-body h4{border-color:#daeaef}
+.resource-link{border-color:#d9e7ed;color:#28849a}.footnote,.readonly-detail p,.settings-class-head,.share-row{color:#698493}.readonly-detail h3,.member-list b,.teacher-form label,.order-row b{color:#356174}.order-row{border-color:#e0eaef}
+.toast{background:#213d4e}.toast.error{background:#ad4c43}.main-footer{background:#fffefa;border-color:#e2eaed;color:#547582;justify-content:center}.main-footer>span{color:#6c8793}.footer-flower{color:#05a5bf!important}
+.schedule-intro{display:flex;gap:15px;align-items:flex-start;margin-bottom:26px;padding:18px;background:#f0fafb;border-radius:14px}.schedule-icon{display:grid;place-items:center;width:48px;height:48px;background:#dff4f7;color:#04879f;border-radius:13px;flex-shrink:0}.schedule-intro h3{font-size:1.05rem;line-height:1.6;color:#264854;margin:5px 0}.schedule-intro p{font-size:.75rem;line-height:1.8;color:#5d7f8d}
+.auto-schedule fieldset{margin-bottom:21px}.auto-schedule>label,.schedule-fields>label{display:block;color:#456676;font-size:.83rem;font-weight:500;margin-bottom:17px}
+.schedule-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.schedule-fields.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.field-help{color:#6a8592;font-size:.72rem;line-height:1.85;margin:9px 0 18px}.auto-schedule>label:has(+.field-help){margin-bottom:0}
+.weekday-choices{display:flex;gap:8px;flex-wrap:wrap}.weekday-choices button{display:flex;align-items:center;justify-content:center;gap:4px;width:calc((100% - 48px)/7);min-width:52px;padding:12px 9px;border-radius:10px;border:1px solid #d9e6eb;background:#fff;color:#627f8e;font-weight:700}.weekday-choices small{font-size:.63rem;font-weight:400}.weekday-choices .selected{border-color:#0998b2;background:#e7f8fb;color:#057890;box-shadow:inset 0 0 0 1px #0998b2}
+.excluded-dates{min-height:70px}.schedule-preview{background:#fafcfd;border:1px solid #deeaee;border-radius:14px;padding:17px;margin:23px 0}
+.preview-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.preview-heading h3{display:flex;align-items:center;gap:7px;font-size:.9rem;color:#2c5c6f}.preview-heading>span{font-size:.72rem;color:#218ba2}
+.schedule-summary{display:flex;align-items:center;gap:11px;flex-wrap:wrap;padding:12px 0;border-top:1px solid #e0ebef;font-size:.73rem;color:#647f8f}.schedule-summary>b{color:#2c566a}.schedule-summary small{margin-left:auto;color:#5d7d90}
+.schedule-table-scroll{max-height:320px;overflow:auto;margin-top:12px;border:1px solid #dce9ee;border-radius:10px}.schedule-table{border-collapse:collapse;width:100%;min-width:550px;text-align:left;font-size:.73rem;line-height:1.8}.schedule-table th{background:#eaf4f7;color:#487285;position:sticky;top:0;z-index:1}.schedule-table th,.schedule-table td{padding:10px 9px;border-bottom:1px solid #e2edf1}.schedule-table td{background:#fff;color:#476779}.schedule-table td:nth-child(-n+3){white-space:nowrap}.schedule-table .badge{font-size:.65rem}
+.replacement-note{background:#fff3e1;color:#95652e;font-size:.74rem;padding:12px;border-radius:8px;line-height:1.8;margin-top:12px}.auto-schedule .form-error p+p{margin-top:8px}.auto-schedule .form-actions .field-help{margin:0}
+@media(min-width:1500px){.public-app main{padding:42px 30px 48px}.curriculum-table th,.curriculum-table td{padding:18px 14px}.activity-content{padding:18px 20px!important}.activity-content>button{font-size:.86rem}}
+@media(max-width:1200px){.teacher-hero{padding:38px 35px;gap:30px}.school-nav nav{gap:20px}.journey-tabs>button{padding:17px 15px}.school-title h1 small{font-size:.75rem}.public-app .school-header,.public-app .school-nav{padding-left:26px;padding-right:26px}}
+@media(max-width:850px){.public-app .school-header{padding:21px 22px}.school-title h1{display:flex;flex-wrap:wrap;font-size:1.4rem;gap:7px}.school-title h1 small{display:block;font-size:.7rem}.school-title h1>span{margin-left:0;font-size:.65rem}.teacher-hero{grid-template-columns:1fr;gap:27px;padding:32px}.hero-copy h2{font-size:2.35rem}.hero-plan{transform:none}.hero-facts{margin-top:23px}.teacher-hero:before{top:-170px}.journey-tabs{grid-template-columns:1fr}.journey-tabs>button{min-height:0;padding:15px 20px}.journey-tabs b{font-size:.85rem}.journey-symbol{display:block}.semester-banner{font-size:.72rem}.semester-banner>span{display:none}.class-strip>button{border-color:#dfeaed}.public-app main{padding:27px 22px 36px}.school-nav nav{gap:21px}.school-nav nav>button{font-size:.75rem}.public-app .school-nav{padding-left:22px;padding-right:22px}}
+@media(max-width:600px){.public-app .school-header{padding:18px}.school-title h1{font-size:1.2rem;max-width:200px}.school-title h1 small{width:100%;order:3;font-size:.62rem}.school-title{gap:8px}.title-flower{font-size:2.1rem}.header-login{flex-shrink:0}.public-app .school-nav{padding:0 18px}.school-nav nav{gap:20px}.school-nav nav .explorer-nav-link{font-size:.7rem;padding:7px 11px}.semester-banner{padding:10px 14px;font-size:.68rem}.public-app main{padding:24px 16px 32px}.teacher-hero{padding:26px 22px;border-radius:22px;gap:25px;margin-bottom:30px}.hero-copy h2{font-size:1.92rem;margin-top:15px}.hero-eyebrow{font-size:.7rem}.hero-copy p{font-size:.79rem}.hero-actions{gap:8px;margin-top:20px}.hero-actions .primary,.hero-actions .secondary{font-size:.71rem;padding:11px 14px}.hero-facts{gap:23px;padding-top:17px}.hero-facts span{font-size:.61rem}.hero-facts b{font-size:1.3rem}.hero-plan{padding:17px;border-radius:15px}.hero-plan-top{font-size:.72rem}.hero-plan .class-select select{font-size:.68rem}.deadline-display{padding:16px 12px}.deadline-display strong{font-size:1.5rem}.hero-plan-note{font-size:.62rem}.planner-top h2{font-size:1.05rem}.journey-tabs>button{border-radius:12px;padding:14px 16px}.journey-tabs small{font-size:.61rem}.planner-controls>span{font-size:.66rem}.class-strip>button{min-width:calc(30% - 7px);border-color:#dfeaed}.class-strip>button:nth-last-child(-n+3){border-color:#dfeaed}.public-app .page-heading h2{font-size:1.4rem}.public-app .page-heading p{font-size:.77rem}.page-actions{width:100%}.page-actions button{font-size:.75rem;flex:1}.progress-tools{align-items:flex-start;flex-direction:column;line-height:1.8}.auto-schedule .form-actions{align-items:stretch;flex-direction:column}.auto-schedule .form-actions .primary{margin-left:0;justify-content:center}.schedule-intro{padding:14px;gap:10px}.schedule-icon{width:36px;height:36px}.schedule-intro h3{font-size:.91rem}.schedule-intro p{font-size:.68rem}.schedule-fields.three{gap:9px}.schedule-fields.three label{font-size:.7rem}.weekday-choices{gap:6px}.weekday-choices button{min-width:0;width:calc((100% - 36px)/7);padding:10px 5px;flex-direction:column;font-size:.8rem}.weekday-choices small{font-size:.55rem}.schedule-preview{padding:12px}.schedule-summary{gap:6px}.schedule-summary small{width:100%;margin-left:0}.preview-heading h3{font-size:.79rem}.preview-heading>span{font-size:.65rem}.modal-body{padding:20px 17px}.class-choices label{font-size:.72rem}}
+
+/* School identity and a more compact teacher workspace. */
+.public-app svg.lucide{stroke-width:1.75}
+.public-app .school-header{padding-top:15px;padding-bottom:15px}
+.school-title{gap:12px;min-width:0}
+.school-logo{display:block;width:54px;height:48px;object-fit:contain;flex-shrink:0}
+.school-identity{min-width:0}
+.school-identity>span{display:block;font-size:.75rem;font-weight:700;color:#637682;margin-bottom:3px}
+.school-title .school-identity h1{display:block;font-size:1.12rem;line-height:1.6;letter-spacing:-.04em;word-break:keep-all;max-width:none}
+.public-app .school-nav{min-height:44px}
+.school-nav nav{gap:23px;align-items:center}
+.school-nav nav>button{padding:11px 0;line-height:1.4}
+.school-nav nav .explorer-nav-link{display:inline-flex;height:30px;min-height:0;padding:0 11px;gap:6px;line-height:1;align-self:center;margin-top:0;margin-bottom:0;border-radius:8px}
+.semester-banner{padding:8px 20px;font-size:.73rem}
+.public-app main{padding-top:24px}
+.teacher-hero{padding:25px 30px;gap:30px;border-radius:20px;margin-bottom:25px;grid-template-columns:1.1fr 1fr;align-items:center}
+.teacher-hero:before{width:190px;height:190px;top:-155px;right:-55px}
+.teacher-hero:after{display:none}
+.hero-copy h2{font-size:1.65rem;line-height:1.4;margin:8px 0 9px;letter-spacing:-.05em}
+.hero-copy p{font-size:.8rem;line-height:1.7}
+.hero-eyebrow{font-size:.7rem}
+.hero-actions{margin-top:16px;gap:8px}
+.hero-actions .primary,.hero-actions .secondary{padding:10px 15px;font-size:.75rem}
+.hero-facts{border:0;padding:0;margin-top:15px;gap:18px;align-items:center}
+.hero-facts span{display:flex;align-items:baseline;gap:5px;font-size:.68rem}
+.hero-facts b{font-size:1rem;margin:0}
+.hero-plan{padding:16px 18px;border-radius:14px;transform:none;box-shadow:none}
+.hero-plan-top{margin-bottom:10px;font-size:.75rem}
+.hero-plan .class-select{padding:0 6px}
+.deadline-display{padding:10px 12px;margin-bottom:10px;gap:7px;border-radius:8px}
+.deadline-display>small{font-size:.67rem;color:#8a6b38}
+.deadline-display strong{margin:0 0 0 auto;font-size:.93rem;letter-spacing:-.04em}
+.hero-projects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-project{border:0;padding:5px 0;gap:9px;min-width:0}
+.hero-project-number{width:30px;height:34px;flex-shrink:0;border-radius:8px}
+.hero-project b{font-size:.72rem;line-height:1.7}
+.hero-project small{margin-top:1px;font-size:.63rem}
+.hero-project .progress-track{margin-top:6px}
+.planner-top{margin-bottom:14px}.planner-top h2{font-size:1.14rem}
+.journey-tabs{gap:12px;margin-bottom:17px}
+.journey-tabs>button{min-height:0;padding:12px 16px;border-radius:12px;gap:11px}
+.journey-tabs small{margin-top:3px;line-height:1.6}
+.journey-number{height:32px;min-width:30px;width:30px;font-size:.95rem}
+.journey-symbol{font-size:inherit;opacity:.55;display:flex;align-items:center}
+.class-strip{padding:17px 20px}.planner-bottom{margin-top:20px;gap:18px}
+.public-app .panel-head{padding-top:17px;padding-bottom:17px}
+.public-app .resource-card{padding:19px}.resource-card h3{min-height:0;margin:14px 0 8px}.resource-card p{min-height:0}.resource-meta{margin:12px 0 15px}
+.public-app .empty{min-height:110px;padding:22px}
+.public-app .class-progress-hero{padding:20px 24px}
+.public-app .main-footer{padding-top:17px;padding-bottom:17px}
+@media(min-width:1500px){.public-app main{padding-top:25px}}
+@media(max-width:1200px){.teacher-hero{padding:23px 26px;gap:22px}.viewing-label{display:none}}
+@media(max-width:850px){.public-app .school-header{padding-top:13px;padding-bottom:13px}.school-title .school-identity h1{font-size:.96rem}.school-logo{width:48px;height:43px}.teacher-hero{grid-template-columns:1fr 1fr;padding:22px;gap:20px}.hero-copy h2{font-size:1.4rem}.hero-plan{padding:13px}.hero-projects{grid-template-columns:1fr;gap:5px}.deadline-display{flex-wrap:wrap}.deadline-display strong{font-size:.82rem}.journey-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.journey-tabs>button{padding:12px;gap:8px}.journey-tabs b{font-size:.74rem}.journey-tabs small{font-size:.6rem}.journey-symbol{display:none}}
+@media(max-width:600px){.public-app .school-header{padding:12px 16px;gap:8px}.school-logo{width:43px;height:39px}.school-title{gap:8px}.school-identity>span{font-size:.64rem;margin-bottom:1px}.school-title .school-identity h1{font-size:.78rem;line-height:1.5;max-width:245px;word-break:keep-all}.public-app .school-nav{min-height:40px}.school-nav nav{gap:18px}.school-nav nav>button{padding:10px 0}.school-nav nav .explorer-nav-link{height:28px;font-size:.7rem;padding:0 9px}.semester-banner{padding:7px 14px;font-size:.65rem}.public-app main{padding-top:18px}.teacher-hero{grid-template-columns:1fr;padding:20px;gap:17px;margin-bottom:21px;border-radius:16px}.hero-copy h2{font-size:1.45rem;margin:7px 0}.hero-copy p{font-size:.75rem}.hero-actions{margin-top:13px}.hero-facts{margin-top:12px;gap:15px}.hero-facts span{font-size:.63rem}.hero-plan{padding:13px 14px}.hero-projects{grid-template-columns:1fr 1fr;gap:10px}.hero-project b{font-size:.65rem}.hero-project-number{width:27px;height:31px}.hero-project-number svg{width:18px}.hero-project small{font-size:.58rem}.deadline-display{padding:9px 10px}.deadline-display strong{font-size:.84rem}.journey-tabs{grid-template-columns:1fr}.journey-tabs>button{padding:11px 14px;gap:10px}.journey-tabs b{font-size:.79rem}.journey-tabs small{font-size:.6rem}.journey-symbol{display:flex}.class-strip{padding:16px}.public-app .class-progress-hero{padding:17px}.public-app .main-footer{font-size:.65rem}}
+
+.school-logo{background:transparent;object-fit:contain}
+.private-plan{display:grid;grid-template-columns:25px 1fr;align-items:start;gap:12px;background:#f8fbfc;border-color:#dfebef;color:#527383;padding:22px}
+.private-plan b{font-size:.83rem;color:#335664}.private-plan p{font-size:.75rem;line-height:1.8;margin-top:7px;color:#6b8290}
+.private-plan>.secondary{grid-column:2;justify-self:start;font-size:.73rem;padding:8px 12px;margin-top:1px}
+.class-strip .class-strip-stat{flex:1;min-width:0;margin:0;text-align:center;border-left:1px solid #e1ecef;padding:3px 18px}
+.class-strip .class-strip-stat b{font-size:.78rem;color:#5d7683;font-weight:500}.class-strip .class-strip-stat strong{font-size:1.35rem;color:#1c8298;margin:8px 0}
+@media(max-width:600px){.private-plan{padding:16px;gap:10px}.class-strip .class-strip-stat{min-width:calc(30% - 7px);border:1px solid #dfeaed;border-radius:7px;padding:10px}}
+.explore-link-logo{width:18px;height:18px;object-fit:contain;display:block}
+.class-strip .class-strip-stat{width:auto}
+.modal-body input[readonly],.settings-class-row input[readonly]{background:#f3f7f8;color:#71818b;cursor:default}
+@media(max-width:600px){.planner-top{flex-wrap:wrap}.plan-downloads{flex-wrap:wrap;max-width:100%}}
+
+.semester-banner{justify-content:center;padding:17px 24px;background:linear-gradient(100deg,#ff9749,#f17b97)}
+.semester-banner h2{font-size:1.55rem;letter-spacing:-.045em;color:#fff}
+.project-intro{margin-bottom:18px;background:#ffffffc9;border:1px solid #dbe9ed;border-radius:12px;overflow:hidden}
+.project-intro summary{display:flex;align-items:center;gap:9px;cursor:pointer;padding:13px 18px;color:#24677c;font-size:.85rem;font-weight:650;list-style:none}
+.project-intro summary::-webkit-details-marker{display:none}
+.project-intro summary::after{content:'+';margin-left:auto;font-size:1.2rem;font-weight:400}
+.project-intro[open] summary::after{content:'−'}
+.project-intro summary small{font-weight:400;color:#768b94;font-size:.75rem}
+.project-intro>div{padding:0 19px 17px}
+.intro-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.intro-columns section+section{border-left:1px solid #e2ecef;padding-left:22px}
+.intro-columns h3{font-size:.82rem;color:#356578;margin-top:7px;word-break:keep-all}
+.project-intro p{font-size:.8rem;line-height:1.9;word-break:keep-all;text-wrap:pretty;color:#536d79;margin-top:9px}
+.project-intro p>span{display:block}.project-intro p>span+span{margin-top:7px}
+.curriculum-table .plan-elements{list-style:none;margin:0;padding:0;display:grid;gap:8px;white-space:normal;word-break:keep-all;overflow-wrap:normal;line-height:1.8}
+.plan-elements li{position:relative;padding-left:11px}
+.plan-elements li::before{content:'·';position:absolute;left:0;top:0;color:#6394a3;font-weight:700}
+.future-cell .competency-label{white-space:normal;word-break:keep-all;overflow-wrap:normal;line-height:1.65}
+.competency-label>span{display:block}
+.competency-label .competency-suffix{white-space:nowrap;margin-top:2px}
+.public-app .progress-heading{margin-bottom:15px;gap:20px;align-items:center}
+.progress-heading h2{white-space:nowrap;margin:0!important;font-size:1.4rem!important}
+.progress-heading-controls{margin-left:auto;display:flex;align-items:center;gap:14px;min-width:0}
+.progress-heading-controls .project-tabs{margin:0}
+.progress-heading-controls .class-select{flex-shrink:0;background:#fff}
+.public-app .class-progress-hero{padding:13px 19px;margin-bottom:15px;gap:15px}
+.class-progress-hero .eyebrow{font-size:.69rem}.class-progress-hero h2{font-size:1rem;margin-top:3px}
+.class-progress-hero .secondary{padding:9px 14px;font-size:.77rem}
+.progress-check{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;min-height:28px;color:#527b8b}
+.progress-check input{position:absolute;opacity:0;width:24px;height:24px;margin:0;inset:auto;cursor:pointer}
+.progress-check-box{width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid #b8d9e2;background:#fff;border-radius:7px;box-shadow:0 1px 2px #24758b08;color:transparent;transition:background .15s,border-color .15s}
+.progress-check input:checked+.progress-check-box,.progress-check input:indeterminate+.progress-check-box{color:white;background:#0593af;border-color:#0593af;box-shadow:0 2px 5px #0593af24}
+.progress-check input:focus-visible+.progress-check-box{outline:3px solid #f4cc69;outline-offset:3px}
+.progress-check:has(input:disabled){opacity:.6;cursor:default}.progress-check input:disabled{cursor:default}
+.bulk-check{flex-direction:row-reverse;font-size:.74rem;font-weight:550;white-space:nowrap}
+.bulk-check .progress-check-box{width:21px;height:21px;border-radius:6px}
+.checklist-head{align-items:center}.checklist-head>span:has(.bulk-check){display:flex;justify-content:center}
+.check-cell .progress-check{margin:auto}.check-cell em{display:none}
+.schedule-cell:disabled{opacity:.7;cursor:default}
+.event-period-fields{grid-template-columns:1fr 1fr}
+@media(max-width:1100px){.progress-heading-controls{gap:9px}.progress-heading-controls .project-tabs button{font-size:.72rem;padding:9px}.public-app .progress-heading{gap:12px;flex-wrap:wrap}.progress-heading-controls{flex-wrap:wrap}}
+@media(max-width:650px){.semester-banner{padding:13px 18px}.semester-banner h2{font-size:1.25rem}.project-intro summary{padding:11px 14px}.project-intro summary small{display:none}.progress-heading-controls{width:100%;margin-left:0;justify-content:space-between}.progress-heading-controls .project-tabs{order:2;width:100%;display:flex}.progress-heading-controls .project-tabs button{flex:1;padding:8px 5px;font-size:.68rem}.public-app .progress-heading{margin-bottom:13px}.progress-heading-controls .class-select{margin-left:auto}.bulk-check>span:last-child{display:none}.check-cell em{display:block;font-size:.65rem;margin-top:2px}.check-cell{flex-direction:column}.event-period-fields{grid-template-columns:1fr 1fr}.class-progress-hero{flex-wrap:wrap}}
+@media(max-width:650px){.checklist-head{display:grid;grid-template-columns:repeat(3,1fr);min-width:0;padding:10px 8px}.checklist-head>span:nth-child(-n+2){display:none}.bulk-check{font-size:.64rem;gap:4px}.bulk-check>span:last-child{display:inline}.bulk-check .progress-check-box{width:19px;height:19px}}
+@media(max-width:850px){.intro-columns{grid-template-columns:1fr;gap:12px}.intro-columns section+section{border-left:0;border-top:1px solid #e2ecef;padding:8px 0 0}}

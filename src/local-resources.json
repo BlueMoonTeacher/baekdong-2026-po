@@ -1,1 +1,314 @@
-[]
+[
+  {
+    "type": "활동지",
+    "project": 1,
+    "lessonId": "1",
+    "lessonIds": [
+      "1"
+    ],
+    "lessonRange": "1",
+    "description": "차시별 활동지",
+    "id": "local-7069769aabb1b195",
+    "name": "인구교육 프로젝트1 활동지(6학년) - 1차시.hwpx",
+    "size": 64958,
+    "staticPath": "/materials/added/local-7069769aabb1b195.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 1,
+    "lessonId": "2",
+    "lessonIds": [
+      "2"
+    ],
+    "lessonRange": "2",
+    "description": "차시별 활동지",
+    "id": "local-e86b06330d0134f7",
+    "name": "인구교육 프로젝트1 활동지(6학년) - 2차시.hwpx",
+    "size": 26997,
+    "staticPath": "/materials/added/local-e86b06330d0134f7.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 1,
+    "lessonId": "5",
+    "lessonIds": [
+      "5"
+    ],
+    "lessonRange": "5",
+    "description": "차시별 활동지",
+    "id": "local-4b3a1768775c720b",
+    "name": "인구교육 프로젝트1 활동지(6학년) - 5차시.hwpx",
+    "size": 562601,
+    "staticPath": "/materials/added/local-4b3a1768775c720b.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 1,
+    "lessonId": "6",
+    "lessonIds": [
+      "6"
+    ],
+    "lessonRange": "6",
+    "description": "차시별 활동지",
+    "id": "local-a20c7adcdabfec99",
+    "name": "인구교육 프로젝트1 활동지(6학년) - 6차시.hwpx",
+    "size": 604261,
+    "staticPath": "/materials/added/local-a20c7adcdabfec99.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 1,
+    "lessonId": "7",
+    "lessonIds": [
+      "7"
+    ],
+    "lessonRange": "7",
+    "description": "차시별 활동지",
+    "id": "local-1a76104448f4cab8",
+    "name": "인구교육 프로젝트1 활동지(6학년) - 7차시.hwpx",
+    "size": 64032,
+    "staticPath": "/materials/added/local-1a76104448f4cab8.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 1,
+    "lessonId": "9",
+    "lessonIds": [
+      "9"
+    ],
+    "lessonRange": "9",
+    "description": "차시별 활동지",
+    "id": "local-e97b42e049329c39",
+    "name": "인구교육 프로젝트1 활동지(6학년) - 9차시.hwpx",
+    "size": 26024,
+    "staticPath": "/materials/added/local-e97b42e049329c39.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "11",
+    "lessonIds": [
+      "11"
+    ],
+    "lessonRange": "11",
+    "description": "차시별 활동지",
+    "id": "local-39133e1b21a92ac0",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 11차시.hwpx",
+    "size": 32237,
+    "staticPath": "/materials/added/local-39133e1b21a92ac0.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "12",
+    "lessonIds": [
+      "12"
+    ],
+    "lessonRange": "12",
+    "description": "차시별 활동지",
+    "id": "local-117adb599646b496",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 12차시.hwpx",
+    "size": 31742,
+    "staticPath": "/materials/added/local-117adb599646b496.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "13",
+    "lessonIds": [
+      "13"
+    ],
+    "lessonRange": "13",
+    "description": "차시별 활동지",
+    "id": "local-4a3a9afd8b1dcbe0",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 13차시.hwpx",
+    "size": 31891,
+    "staticPath": "/materials/added/local-4a3a9afd8b1dcbe0.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "14",
+    "lessonIds": [
+      "14"
+    ],
+    "lessonRange": "14",
+    "description": "차시별 활동지",
+    "id": "local-03baa7ce19453f36",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 14차시.hwpx",
+    "size": 31790,
+    "staticPath": "/materials/added/local-03baa7ce19453f36.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "15",
+    "lessonIds": [
+      "15"
+    ],
+    "lessonRange": "15",
+    "description": "차시별 활동지",
+    "id": "local-795c7598bbc014bd",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 15차시.hwpx",
+    "size": 32527,
+    "staticPath": "/materials/added/local-795c7598bbc014bd.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "16",
+    "lessonIds": [
+      "16"
+    ],
+    "lessonRange": "16",
+    "description": "차시별 활동지",
+    "id": "local-49dd80352a6bbf0b",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 16차시.hwpx",
+    "size": 31753,
+    "staticPath": "/materials/added/local-49dd80352a6bbf0b.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "17",
+    "lessonIds": [
+      "17"
+    ],
+    "lessonRange": "17",
+    "description": "차시별 활동지",
+    "id": "local-96a40b148362e9a2",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 17차시.hwpx",
+    "size": 32318,
+    "staticPath": "/materials/added/local-96a40b148362e9a2.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "18",
+    "lessonIds": [
+      "18"
+    ],
+    "lessonRange": "18",
+    "description": "차시별 활동지",
+    "id": "local-9cc5f8c30a7feac2",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 18차시.hwpx",
+    "size": 31957,
+    "staticPath": "/materials/added/local-9cc5f8c30a7feac2.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "19",
+    "lessonIds": [
+      "19"
+    ],
+    "lessonRange": "19",
+    "description": "차시별 활동지",
+    "id": "local-21da8e456c9f4dba",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 19차시.hwpx",
+    "size": 32019,
+    "staticPath": "/materials/added/local-21da8e456c9f4dba.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 2,
+    "lessonId": "20",
+    "lessonIds": [
+      "20"
+    ],
+    "lessonRange": "20",
+    "description": "차시별 활동지",
+    "id": "local-afeea2017428537a",
+    "name": "인구교육 프로젝트2 활동지(6학년) - 20차시.hwpx",
+    "size": 51415,
+    "staticPath": "/materials/added/local-afeea2017428537a.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 3,
+    "lessonId": "21",
+    "lessonIds": [
+      "21",
+      "22"
+    ],
+    "lessonRange": "21~22",
+    "description": "21~22차시 활동지 · 21차시 학교 변화 자료는 별도 보완 필요",
+    "id": "local-90ec51e7ae37b9f5",
+    "name": "인구교육 프로젝트3 활동지(6학년) - 21~22차시.hwpx",
+    "size": 41587,
+    "staticPath": "/materials/added/local-90ec51e7ae37b9f5.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 3,
+    "lessonId": "23",
+    "lessonIds": [
+      "23",
+      "24",
+      "25"
+    ],
+    "lessonRange": "23~25",
+    "description": "23~25차시 활동지 · 24~25차시 포스터 제작 활동은 별도 보완 필요",
+    "id": "local-f9d2224fc60535db",
+    "name": "인구교육 프로젝트3 활동지(6학년) - 23~25차시.hwpx",
+    "size": 40422,
+    "staticPath": "/materials/added/local-f9d2224fc60535db.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 3,
+    "lessonId": "26",
+    "lessonIds": [
+      "26"
+    ],
+    "lessonRange": "26",
+    "description": "차시별 활동지",
+    "id": "local-6b6e68c1e115abaf",
+    "name": "인구교육 프로젝트3 활동지(6학년) - 26차시.hwpx",
+    "size": 41516,
+    "staticPath": "/materials/added/local-6b6e68c1e115abaf.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 3,
+    "lessonId": "27",
+    "lessonIds": [
+      "27"
+    ],
+    "lessonRange": "27",
+    "description": "차시별 활동지",
+    "id": "local-b1e5bb257dd2759e",
+    "name": "인구교육 프로젝트3 활동지(6학년) - 27차시.hwpx",
+    "size": 41747,
+    "staticPath": "/materials/added/local-b1e5bb257dd2759e.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 3,
+    "lessonId": "28",
+    "lessonIds": [
+      "28",
+      "29"
+    ],
+    "lessonRange": "28~29",
+    "description": "28~29차시 활동지",
+    "id": "local-e8e7a77ce9ae4225",
+    "name": "인구교육 프로젝트3 활동지(6학년) - 28~29차시.hwpx",
+    "size": 43240,
+    "staticPath": "/materials/added/local-e8e7a77ce9ae4225.hwpx"
+  },
+  {
+    "type": "활동지",
+    "project": 3,
+    "lessonId": "30",
+    "lessonIds": [
+      "30"
+    ],
+    "lessonRange": "30",
+    "description": "차시별 활동지",
+    "id": "local-21eccfcf947e6ae8",
+    "name": "인구교육 프로젝트3 활동지(6학년) - 30차시.hwpx",
+    "size": 53329,
+    "staticPath": "/materials/added/local-21eccfcf947e6ae8.hwpx"
+  }
+]

@@ -1,0 +1,4 @@
+const fs=require('node:fs/promises');const {collect}=require('../functions/population.cjs');
+(async()=>{const text=(await fs.readFile('api-key.txt','utf8')).trim();let key=(text.match(/[A-Za-z0-9%+\/=_-]{40,}/g)||[text]).sort((a,b)=>b.length-a.length)[0];try{key=decodeURIComponent(key);}catch{}
+ const data=await collect(key);await fs.writeFile('public/explore/population.json',JSON.stringify(data));console.log(JSON.stringify({period:data.latestPeriod,months:data.periods.length,regions:data.region.length,ageMonths:data.ages.length,movementRows:data.movement.length,latestTotal:data.region.filter(x=>x.period===data.latestPeriod).reduce((s,x)=>s+x.total,0),warnings:data.warnings}));
+})().catch(e=>{console.error('Population sync failed:',/^(upstream-|no-complete)/.test(e.message)?e.message:'local-file-error');process.exitCode=1;});

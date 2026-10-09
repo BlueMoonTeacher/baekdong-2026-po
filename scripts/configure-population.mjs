@@ -1,0 +1,2 @@
+import fs from 'node:fs/promises';
+const cfg=JSON.parse(await fs.readFile('firebase.json','utf8'));cfg.functions=[{source:'functions',codebase:'population',ignore:['node_modules','*-debug.log','*.local','.env*']}];cfg.hosting.rewrites=[{source:'/api/population',function:{functionId:'populationData',region:'asia-northeast3'}},{source:'**',destination:'/index.html'}];await fs.writeFile('firebase.json',JSON.stringify(cfg,null,2)+'\n');

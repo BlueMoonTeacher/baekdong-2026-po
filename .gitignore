@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.firebase/
+*-debug.log
+source-text/
+test-results/
+.env.local
+api-key.txt
+**/api-key.txt
+.env*
+!.env.example
+수업 웹앱 프로젝트/source/
+functions/node_modules/
+artifacts/

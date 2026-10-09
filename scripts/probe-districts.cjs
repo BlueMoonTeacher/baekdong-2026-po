@@ -1,0 +1,2 @@
+const fs=require('node:fs/promises');const p=require('../functions/population.cjs');
+(async()=>{let key=(await fs.readFile('api-key.txt','utf8')).trim();key=decodeURIComponent((key.match(/[A-Za-z0-9%+\/=_-]{40,}/g)||[key])[0]);for(const [code,name] of p.districts){const rows=await p.request(key,'region',{start_ym:'202401',end_ym:'202610',cl_han_code:code});await fs.writeFile('수업 웹앱 프로젝트/source/region-'+code+'.json',JSON.stringify(rows));console.log(code,name,rows.length,rows.at(-1));}})().catch(()=>console.log('probe failed'));

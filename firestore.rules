@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function signed() { return request.auth != null && request.auth.token.email_verified == true && request.auth.token.firebase.sign_in_provider == 'google.com'; }
+  function member() { return signed() && exists(/databases/$(database)/documents/members/$(request.auth.token.email)); }
+  function admin() { return member() && get(/databases/$(database)/documents/members/$(request.auth.token.email)).data.role == 'admin'; }
+  function stamp() { return request.resource.data.updatedBy == request.auth.uid && request.resource.data.updatedAt == request.time; }
+  match /members/{email} {
+   allow get: if signed() && (request.auth.token.email == email || admin());
+   allow list: if admin();
+   allow create, update: if admin() && email != request.auth.token.email && request.resource.data.keys().hasOnly(['name','role','updatedBy','updatedAt']) && request.resource.data.name is string && request.resource.data.name.size() <= 80 && request.resource.data.role == 'teacher' && stamp();
+   allow delete: if admin() && resource.data.role != 'admin';
+  }
+  match /settings/general {
+   allow read: if true;
+   allow write: if admin() && request.resource.data.keys().hasOnly(['classes','updatedBy','updatedAt']) && request.resource.data.classes is list && request.resource.data.classes.size() > 0 && request.resource.data.classes.size() <= 20 && stamp();
+  }
+  match /events/{id} {
+   allow read: if true;
+   allow create,update: if signed() && request.resource.data.keys().hasOnly(['classId','lessonId','date','time','endTime','note','updatedBy','updatedAt']) && request.resource.data.classId is string && request.resource.data.lessonId.matches('^([1-9]|[12][0-9]|30)$') && request.resource.data.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$') && request.resource.data.time.matches('^([01][0-9]|2[0-3]):[0-5][0-9]$') && request.resource.data.endTime.matches('^([01][0-9]|2[0-3]):[0-5][0-9]$') && request.resource.data.endTime > request.resource.data.time && request.resource.data.note is string && request.resource.data.note.size() <= 3000 && stamp();
+   allow delete: if signed();
+  }
+  match /progress/{id} {
+   allow read: if true;
+   allow create,update: if signed() && request.resource.data.keys().hasOnly(['classId','number','activity','padlet','worksheet','updatedBy','updatedAt']) && request.resource.data.classId is string && request.resource.data.number is int && request.resource.data.number >= 1 && request.resource.data.number <= 30 && id == request.resource.data.classId + '_' + string(request.resource.data.number) && (!('activity' in request.resource.data) || request.resource.data.activity is bool) && (!('padlet' in request.resource.data) || request.resource.data.padlet is bool) && (!('worksheet' in request.resource.data) || request.resource.data.worksheet is bool) && stamp();
+  }
+  match /discussions/{id} {
+   allow read: if true;
+   allow create,update: if signed() && request.resource.data.keys().hasOnly(['title','body','decision','status','owner','project','dueDate','createdDate','updatedBy','updatedAt']) && request.resource.data.title is string && request.resource.data.title.size() > 0 && request.resource.data.title.size() <= 160 && request.resource.data.body is string && request.resource.data.body.size() <= 10000 && request.resource.data.decision is string && request.resource.data.decision.size() <= 10000 && request.resource.data.status in ['open','agreed','done'] && (request.resource.data.status == 'open' || request.resource.data.decision.size() > 0) && request.resource.data.project is int && request.resource.data.project >= 0 && request.resource.data.project <= 3 && stamp();
+   allow delete: if signed();
+  }
+  match /resources/{id} {
+   allow read: if true;
+   allow create,update: if admin() && request.resource.data.keys().hasOnly(['name','description','project','lessonId','type','url','path','size','updatedBy','updatedAt']) && request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 200 && request.resource.data.description is string && request.resource.data.description.size() <= 3000 && request.resource.data.project is int && request.resource.data.project >= 0 && request.resource.data.project <= 3 && (request.resource.data.url == '' || request.resource.data.url.matches('^https://.*')) && (request.resource.data.path == '' || request.resource.data.path.matches('^materials/' + id + '/[^/]+$')) && request.resource.data.size is int && request.resource.data.size >= 0 && request.resource.data.size <= 50*1024*1024 && stamp();
+   allow delete: if admin();
+  }
+ }
+}

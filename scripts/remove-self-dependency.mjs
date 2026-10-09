@@ -1,0 +1,3 @@
+import fs from 'node:fs/promises';
+const p=JSON.parse(await fs.readFile('functions/package.json','utf8'));delete p.dependencies['ongyeot-population-scheduler'];await fs.writeFile('functions/package.json',JSON.stringify(p,null,2)+'\n');
+const lock=JSON.parse(await fs.readFile('functions/package-lock.json','utf8'));delete lock.packages[''].dependencies['ongyeot-population-scheduler'];delete lock.packages['..'];delete lock.packages['node_modules/ongyeot-population-scheduler'];if(lock.dependencies)delete lock.dependencies['ongyeot-population-scheduler'];await fs.writeFile('functions/package-lock.json',JSON.stringify(lock,null,2)+'\n');

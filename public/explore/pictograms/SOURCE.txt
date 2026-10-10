@@ -1,0 +1,5 @@
+Current character assets: six individually generated transparent 2D PNGs from the built-in image_gen tool. See GENERATED-IMAGES.json for filenames and full prompts.
+SVG symbols and legacy fallback figures: locally authored or composed from lucide-react 0.468.x (ISC license). No decorative heart badges.
+Palette sampled from the Yangsan city logo: green #009f43, red #d20b19, blue #003c96.
+All uses the four-square layout-grid symbol. Common and growth use /images/yangsan-city-logo.png.
+Regenerate SVG symbols only: node scripts/prepare-explorer-icons.mjs (does not overwrite PNG illustrations).

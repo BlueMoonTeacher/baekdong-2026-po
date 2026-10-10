@@ -1,0 +1,83 @@
+.explorer .explore-toolbar{padding:0}
+.explore-toolbar-inner{width:100%;max-width:1800px;margin:auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.explorer .explore-toolbar nav button{height:61px;padding:0 5px}
+.population-lab .lab-header{justify-content:flex-start;padding:10px 22px;min-height:68px}
+.lab-header-actions{margin-left:auto}
+.lab-timeline-control{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.lab-timeline-control select{width:162px}
+.population-lab.is-board .lab-timeline-control{margin-left:auto}
+.population-lab.is-board .lab-header-actions{margin-left:0}
+.population-lab .lab-time{padding:5px 22px}
+.lab-time-slider>div{font-size:11px}
+.lab-time-slider label{font-size:16px}
+.population-lab .lab-detail-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.population-lab.is-advanced .lab-detail-tabs{grid-template-columns:repeat(5,minmax(0,1fr))}
+.population-lab .lab-detail-tabs button{min-height:44px;font-size:14px}
+.population-lab.is-board .lab-detail-tabs button{min-height:48px;font-size:16px}
+.sgis-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.population-lab .sgis-heading h3{margin:0;font-size:20px}
+.population-lab .sgis-basis{font-size:13px;line-height:1.75;color:#627c78;margin:12px 0}
+.sgis-basis a{text-decoration:underline}
+.sgis-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;margin:0}
+.sgis-metrics>div{padding:15px 0;border-bottom:1px solid #dee8e7}
+.sgis-metrics dt{font-size:14px;color:#577169}
+.sgis-metrics dd{font-size:25px;font-weight:800;margin:0;color:#2b6958}
+.sgis-metrics dd small{font-size:13px;margin-left:6px;white-space:nowrap}
+.population-lab .sgis-explanation{font-size:16px;line-height:1.8;margin:18px 0}
+.sgis-area-select{display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sgis-area-select select{width:100%;min-width:0}
+.sgis-area-result{display:flex;flex-direction:column;gap:6px;margin-top:16px;padding:16px;background:#eff5fa;border-left:3px solid #6b9eba}
+.sgis-area-result strong{font-size:28px}.sgis-area-result small{font-size:12px}
+.sgis-message p{font-size:17px;line-height:1.8;margin-bottom:16px}
+.explorer .explore-intro h1{font-size:32px}
+.explorer .explore-intro p{font-size:18px;max-width:900px;line-height:1.75}
+.explorer .explore-eyebrow{font-size:14px}
+.explorer .policy-years{border-radius:6px}
+.explorer .policy-years button{font-size:16px;min-height:48px;border-radius:4px}
+.explorer .policy-search{width:340px;min-height:48px}
+.explorer .policy-search input{font-size:17px}
+.explorer .lifecycle-filter button{font-size:16px;min-height:84px;border-radius:6px}
+.explorer .policy-results,.explorer .policy-results>span{font-size:15px;color:#586d68}
+.explorer .policy-note{font-size:14px;line-height:1.8;color:#62766e}
+.explorer .policy-card{border-radius:8px;padding:26px;min-height:360px}
+.explorer .policy-card h2{font-size:25px;color:#203b36;margin:15px 0}
+.explorer .policy-card p{font-size:19px;color:#4d655c;line-height:1.85}
+.explorer .policy-year{font-size:14px;color:#687971}
+.explorer .policy-target{font-size:16px;color:#53685e;line-height:1.7;border-radius:5px}
+.explorer .policy-card-bottom button{font-size:17px;min-height:48px;color:#2c6758}
+.explorer .policy-fact-preview{margin:2px 0 20px;padding-left:21px;font-size:17px;line-height:1.75;color:#516d69}
+.policy-fact-preview li+li{margin-top:7px}
+.explorer .explore-modal{width:900px;padding:36px 42px;border-radius:8px;background:#fff;max-height:92dvh}
+.explorer .modal-close{height:48px;width:48px;right:10px;top:8px}
+.explorer .policy-reading h2{font-size:31px;line-height:1.45;margin:12px 34px 20px 0}
+.explorer .policy-modal-summary{font-size:21px;color:#354f47;line-height:1.9;margin:18px 0 26px!important}
+.explorer .policy-reading h3{font-size:21px;display:flex;gap:10px;align-items:center;color:#294f43;margin-bottom:12px}
+.policy-reading section{padding:22px 0;border-top:1px solid #dce5e0}
+.policy-reading section p,.policy-reading section li{font-size:19px;line-height:1.85;color:#435f55}
+.reading-facts ul{padding-left:25px;margin:0}.reading-facts li+li{margin-top:12px}
+.policy-reading .reading-example{border-left:4px solid #729fb6;padding:18px 22px;background:#f0f6fa;margin:14px 0}
+.reading-example small{display:block;margin-top:12px;color:#5f7781;font-size:13px;line-height:1.75}
+.policy-reading .reading-inquiry{margin-top:12px;padding:22px 0}
+.explorer .policy-reading .reading-evidence{font-size:16px;line-height:1.8;margin-top:12px;color:#647b72}
+.reading-source{border-top:1px solid #dce5e0;padding-top:18px}
+.reading-source p{font-size:14px;line-height:1.8;color:#62776d;margin-top:7px}
+.reading-words dl{margin:0}.reading-words dl>div{margin:12px 0}.reading-words dt{font-size:17px;font-weight:700;color:#356277}.reading-words dd{font-size:17px;line-height:1.8;margin:4px 0;color:#4d6967}
+.explorer .policy-reading .explore-secondary,.explorer .policy-reading .explore-primary{font-size:16px;min-height:48px}
+.explorer .conflict-box{font-size:17px;line-height:1.8;border-radius:6px}
+.explorer .conflict-label{font-size:14px;line-height:1.75}
+@media(max-width:1100px){.explore-toolbar-inner{padding:0 20px}.population-lab.is-board .lab-title h1{font-size:21px}.population-lab.is-board .lab-title img{width:32px;height:32px}.population-lab.is-board .lab-header{gap:9px}.population-lab.is-board .lab-timeline-control select{width:148px}.population-lab.is-board .lab-fullscreen span{display:none}}
+@media(max-width:760px){
+ .explore-toolbar-inner{padding:0 14px 12px;flex-direction:column;gap:8px;min-width:0}
+ .explorer .explore-toolbar nav{gap:8px}.explorer .explore-toolbar nav button{height:48px}
+ .population-lab .lab-header{padding:10px 12px;gap:8px}.lab-timeline-control select{width:148px}.lab-header-actions{gap:5px}
+ .population-lab .lab-time{padding:8px 12px}.population-lab.is-board .lab-timeline-control{margin-left:0}
+ .population-lab.is-board .lab-title{width:calc(100% - 56px);order:0}.population-lab.is-board .lab-header-actions{position:absolute;top:10px;right:12px}.population-lab.is-board .lab-header-actions>.lab-icon-button{display:none}
+ .population-lab.is-board .lab-board-level{order:2}.population-lab.is-board .lab-timeline-control{order:1}
+ .population-lab .lab-detail-tabs button,.population-lab.is-board .lab-detail-tabs button{font-size:13px;min-height:44px}
+ .explorer .policy-years button{font-size:13px;padding:6px 10px;flex:1}.explorer .policy-search{width:100%}
+ .explorer .lifecycle-filter button{font-size:13px}.explorer .policy-results{font-size:13px;gap:10px}.explorer .policy-results label{font-size:13px}
+ .explorer .policy-card{padding:22px;min-height:0}.explorer .policy-card h2{font-size:24px}
+ .explorer .explore-intro h1{font-size:28px}.explorer .explore-intro p{font-size:17px}
+ .explorer .explore-modal{padding:28px 22px}.explorer .policy-reading h2{font-size:25px}.explorer .policy-modal-summary{font-size:19px}
+ .policy-reading section p,.policy-reading section li{font-size:18px}.explorer .policy-reading h3{font-size:20px}.policy-reading .reading-example{padding:16px}
+}

@@ -219,3 +219,30 @@ button:disabled{opacity:.5;cursor:not-allowed}
 @media(max-width:650px){.semester-banner{padding:13px 18px}.semester-banner h2{font-size:1.25rem}.project-intro summary{padding:11px 14px}.project-intro summary small{display:none}.progress-heading-controls{width:100%;margin-left:0;justify-content:space-between}.progress-heading-controls .project-tabs{order:2;width:100%;display:flex}.progress-heading-controls .project-tabs button{flex:1;padding:8px 5px;font-size:.68rem}.public-app .progress-heading{margin-bottom:13px}.progress-heading-controls .class-select{margin-left:auto}.bulk-check>span:last-child{display:none}.check-cell em{display:block;font-size:.65rem;margin-top:2px}.check-cell{flex-direction:column}.event-period-fields{grid-template-columns:1fr 1fr}.class-progress-hero{flex-wrap:wrap}}
 @media(max-width:650px){.checklist-head{display:grid;grid-template-columns:repeat(3,1fr);min-width:0;padding:10px 8px}.checklist-head>span:nth-child(-n+2){display:none}.bulk-check{font-size:.64rem;gap:4px}.bulk-check>span:last-child{display:inline}.bulk-check .progress-check-box{width:19px;height:19px}}
 @media(max-width:850px){.intro-columns{grid-template-columns:1fr;gap:12px}.intro-columns section+section{border-left:0;border-top:1px solid #e2ecef;padding:8px 0 0}}
+
+.curriculum-table{font-size:.94rem}
+.curriculum-table thead th{font-size:.85rem;line-height:1.7}
+.curriculum-table .elements-cell,.curriculum-table .p2 .elements-cell,.curriculum-table .p3 .elements-cell{font-size:.88rem}
+.curriculum-table .plan-elements{gap:16px;line-height:1.75;white-space:normal}
+.curriculum-table .plan-elements li{padding-left:12px}
+.population-element-line{display:block;word-break:keep-all;overflow-wrap:normal}
+.curriculum-table .topic-cell,.curriculum-table .p2 .topic-cell,.curriculum-table .p3 .topic-cell{font-size:.9rem}
+.curriculum-table .activity-content>button{font-size:.96rem;line-height:1.85}
+.curriculum-table .period-cell,.curriculum-table .period-cell>button{font-size:.94rem}
+.curriculum-table .future-cell>span,.curriculum-table .output-cell{font-size:.86rem;line-height:1.75}
+.curriculum-table .project-name-cell b{font-size:1rem}
+.curriculum-table .project-name-cell>small,.curriculum-table .project-range{font-size:.8rem}
+.curriculum-table .row-status{font-size:.77rem}
+.curriculum-table .future-cell .plan-cell-images img{width:58px;height:58px}
+.curriculum-table .community-cell .plan-cell-images img{width:52px;height:58px}
+.curriculum-table .lesson-materials{display:grid;gap:9px;justify-content:center}
+.curriculum-table .material-item{display:flex;align-items:center;gap:5px}
+.curriculum-table .material-item>button{margin:0;min-height:34px;border-radius:7px;line-height:1.2}
+.curriculum-table .material-item .material-download{width:60px;padding:8px 4px;font-size:.8rem;font-weight:600}
+.curriculum-table .material-item .material-preview-button{width:30px;padding:7px 5px;flex-shrink:0}
+.curriculum-table .material-ppt>button{background:#fff0f1;color:#ad4658}
+.curriculum-table .material-ppt>button:hover{background:#ffe2e6}
+.curriculum-table .material-worksheet>button{background:#eaf3ff;color:#356da1}
+.curriculum-table .material-worksheet>button:hover{background:#dceaff}
+.curriculum-table .material-item>button:focus-visible{outline:3px solid #e6b740;outline-offset:2px}
+@media(max-width:600px){.curriculum-table{min-width:1200px}.curriculum-table .material-item>button{min-height:40px}.curriculum-table .material-item .material-preview-button{width:34px}.curriculum-table .materials-col{width:9%}.curriculum-table .content-col{width:32%}}

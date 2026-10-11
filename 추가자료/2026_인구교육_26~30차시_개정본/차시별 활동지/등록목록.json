@@ -1,0 +1,380 @@
+[
+  {
+    "file": "인구교육 프로젝트1 활동지(6학년) - 1차시.hwpx",
+    "project": 1,
+    "lessonId": "1",
+    "lessonIds": [
+      "1"
+    ],
+    "lessonRange": "1",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      0,
+      1
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트1 활동지(6학년) - 1차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트1 활동지(6학년) - 2차시.hwpx",
+    "project": 1,
+    "lessonId": "2",
+    "lessonIds": [
+      "2"
+    ],
+    "lessonRange": "2",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      2,
+      4
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트1 활동지(6학년) - 2차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트1 활동지(6학년) - 5차시.hwpx",
+    "project": 1,
+    "lessonId": "5",
+    "lessonIds": [
+      "5"
+    ],
+    "lessonRange": "5",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      5,
+      8
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트1 활동지(6학년) - 5차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트1 활동지(6학년) - 6차시.hwpx",
+    "project": 1,
+    "lessonId": "6",
+    "lessonIds": [
+      "6"
+    ],
+    "lessonRange": "6",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      9,
+      11
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트1 활동지(6학년) - 6차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트1 활동지(6학년) - 7차시.hwpx",
+    "project": 1,
+    "lessonId": "7",
+    "lessonIds": [
+      "7"
+    ],
+    "lessonRange": "7",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      12,
+      14
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트1 활동지(6학년) - 7차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트1 활동지(6학년) - 9차시.hwpx",
+    "project": 1,
+    "lessonId": "9",
+    "lessonIds": [
+      "9"
+    ],
+    "lessonRange": "9",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      15,
+      16
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트1 활동지(6학년) - 9차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 11차시.hwpx",
+    "project": 2,
+    "lessonId": "11",
+    "lessonIds": [
+      "11"
+    ],
+    "lessonRange": "11",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      29,
+      29
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 11차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 12차시.hwpx",
+    "project": 2,
+    "lessonId": "12",
+    "lessonIds": [
+      "12"
+    ],
+    "lessonRange": "12",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      30,
+      30
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 12차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 13차시.hwpx",
+    "project": 2,
+    "lessonId": "13",
+    "lessonIds": [
+      "13"
+    ],
+    "lessonRange": "13",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      31,
+      32
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 13차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 14차시.hwpx",
+    "project": 2,
+    "lessonId": "14",
+    "lessonIds": [
+      "14"
+    ],
+    "lessonRange": "14",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      33,
+      33
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 14차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 15차시.hwpx",
+    "project": 2,
+    "lessonId": "15",
+    "lessonIds": [
+      "15"
+    ],
+    "lessonRange": "15",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      34,
+      50
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 15차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 16차시.hwpx",
+    "project": 2,
+    "lessonId": "16",
+    "lessonIds": [
+      "16"
+    ],
+    "lessonRange": "16",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      51,
+      52
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 16차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 17차시.hwpx",
+    "project": 2,
+    "lessonId": "17",
+    "lessonIds": [
+      "17"
+    ],
+    "lessonRange": "17",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      53,
+      59
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 17차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 18차시.hwpx",
+    "project": 2,
+    "lessonId": "18",
+    "lessonIds": [
+      "18"
+    ],
+    "lessonRange": "18",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      60,
+      61
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 18차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 19차시.hwpx",
+    "project": 2,
+    "lessonId": "19",
+    "lessonIds": [
+      "19"
+    ],
+    "lessonRange": "19",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      62,
+      63
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 19차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트2 활동지(6학년) - 20차시.hwpx",
+    "project": 2,
+    "lessonId": "20",
+    "lessonIds": [
+      "20"
+    ],
+    "lessonRange": "20",
+    "type": "활동지",
+    "description": "차시별 활동지",
+    "sourceParagraphs": [
+      64,
+      66
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트2 활동지(6학년) - 20차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트3 활동지(6학년) - 21~22차시.hwpx",
+    "project": 3,
+    "lessonId": "21",
+    "lessonIds": [
+      "21",
+      "22"
+    ],
+    "lessonRange": "21~22",
+    "type": "활동지",
+    "description": "21~22차시 활동지 · 21차시 학교 변화 자료는 별도 보완 필요",
+    "sourceParagraphs": [
+      17,
+      18
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트3 활동지(6학년) - 21~22차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트3 활동지(6학년) - 23~25차시.hwpx",
+    "project": 3,
+    "lessonId": "23",
+    "lessonIds": [
+      "23",
+      "24",
+      "25"
+    ],
+    "lessonRange": "23~25",
+    "type": "활동지",
+    "description": "23~25차시 활동지 · 24~25차시 포스터 제작 활동은 별도 보완 필요",
+    "sourceParagraphs": [
+      19,
+      20
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트3 활동지(6학년) - 23~25차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트3 활동지(6학년) - 26차시.hwpx",
+    "project": 3,
+    "lessonId": "26",
+    "lessonIds": [
+      "26"
+    ],
+    "lessonRange": "26",
+    "type": "활동지",
+    "description": "기존 양식 유지 · 웹앱·Gems·NotebookLM 최소 수정",
+    "sourceParagraphs": [
+      21,
+      22
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트3 활동지(6학년) - 26차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트3 활동지(6학년) - 27차시.hwpx",
+    "project": 3,
+    "lessonId": "27",
+    "lessonIds": [
+      "27"
+    ],
+    "lessonRange": "27",
+    "type": "활동지",
+    "description": "기존 양식 유지 · 웹앱·Gems·NotebookLM 최소 수정",
+    "sourceParagraphs": [
+      23,
+      24
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트3 활동지(6학년) - 27차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트3 활동지(6학년) - 28~29차시.hwpx",
+    "project": 3,
+    "lessonId": "28",
+    "lessonIds": [
+      "28",
+      "29"
+    ],
+    "lessonRange": "28~29",
+    "type": "활동지",
+    "description": "기존 양식 유지 · 웹앱·Gems·NotebookLM 최소 수정",
+    "sourceParagraphs": [
+      25,
+      26
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트3 활동지(6학년) - 28~29차시.pdf"
+  },
+  {
+    "file": "인구교육 프로젝트3 활동지(6학년) - 30차시.hwpx",
+    "project": 3,
+    "lessonId": "30",
+    "lessonIds": [
+      "30"
+    ],
+    "lessonRange": "30",
+    "type": "활동지",
+    "description": "기존 양식 유지 · 웹앱·Gems·NotebookLM 최소 수정",
+    "sourceParagraphs": [
+      27,
+      28
+    ],
+    "inferredLesson": false,
+    "pdf": "인구교육 프로젝트3 활동지(6학년) - 30차시.pdf"
+  }
+]

@@ -3,8 +3,10 @@ from pathlib import Path
 from lxml import etree as E
 import zipfile, re, json, copy, shutil
 
-source=next(Path('.').glob('*수정전.hwpx'))
-output=Path(str(source).replace('_수정전','_순서수정'))
+source=next(Path('추가자료/보관/원본지도안').glob('*수정전.hwpx'))
+output=Path('추가자료/보관/이전초안/프로젝트교환')/source.name.replace('_수정전','_순서수정')
+output.parent.mkdir(parents=True,exist_ok=True)
+plan_source=next(Path('추가자료/공통자료').glob('*논의*.hwpx'))
 public=Path('public/materials'); public.mkdir(parents=True,exist_ok=True)
 Path('src').mkdir(exist_ok=True)
 hp='http://www.hancom.co.kr/hwpml/2011/paragraph'
@@ -57,10 +59,9 @@ with zipfile.ZipFile(source) as z:
         dest.testzip(); check=E.fromstring(dest.read('Contents/section0.xml'))
         assert len(check)==54
         assert len(check.xpath('.//*[local-name()="tbl"]'))==len(root.xpath('.//*[local-name()="tbl"]'))
-    shutil.copy2(output,public/'lesson-plan.hwpx')
-    shutil.copy2(next(p for p in Path('.').glob('*.hwpx') if '논의' in p.name),public/'project-plan.hwpx')
+    # Original downloads are published to Storage separately; no Hosting copies.
     # Scheduler labels follow the newer project plan, not the older detailed guide.
-    with zipfile.ZipFile(next(p for p in Path('.').glob('*.hwpx') if '논의' in p.name)) as plan:
+    with zipfile.ZipFile(plan_source) as plan:
         planroot=E.fromstring(plan.read('Contents/section0.xml'))
         project=0
         carried={}; group=''
@@ -86,5 +87,5 @@ with zipfile.ZipFile(source) as z:
                     l['planGroup']=group
                     l['planCells']={str(k):v for k,v in carried.items()}
     Path('src/curriculum.json').write_text(json.dumps(lessons,ensure_ascii=False,indent=2),encoding='utf-8')
-    Path('차시_변경내역.txt').write_text('\n'.join(report),encoding='utf-8')
+    (output.parent/'차시_변경내역.txt').write_text('\n'.join(report),encoding='utf-8')
     print('Corrected HWPX verified: 27 lesson tables, 30 periods; original retained.')

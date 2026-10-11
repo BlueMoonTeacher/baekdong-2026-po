@@ -1,0 +1,29 @@
+[
+  {
+    "id": "plan",
+    "name": "인구교육 프로젝트 수업 계획 및 논의사항",
+    "type": "계획표",
+    "description": "프로젝트별 주제, 활동 내용, 산출물과 전체 수업 흐름",
+    "sourceFile": "공통자료/인구교육 프로젝트 수업 계획 및 논의 사항 정리.hwpx",
+    "project": 0,
+    "lessonId": "",
+    "staticPath": "https://firebasestorage.googleapis.com/v0/b/baekdong-population-2026.firebasestorage.app/o/materials%2Fplan-96c2bd8bdfd8%2Fplan.hwpx?alt=media",
+    "storageObject": "materials/plan-96c2bd8bdfd8/plan.hwpx",
+    "storageSha256": "96c2bd8bdfd8aaba883cfcf86adb99a9b80fbec5303176cef45ee08330bc7c12",
+    "size": 246392
+  },
+  {
+    "id": "lessons",
+    "name": "2026. 6학년 인구교육 교수·학습 과정안",
+    "type": "지도안",
+    "description": "프로젝트 2·3 교환 · 웹앱·Gems·NotebookLM은 26~30차시에만 연계",
+    "sourceFile": "2026_인구교육_26~30차시_개정본/[서식3] 2026. 6학년 인구교육 프로젝트 수업 과정안(프로젝트1~3)_프로젝트교환_26~30차시연계.hwpx",
+    "project": 0,
+    "lessonId": "",
+    "staticPath": "https://firebasestorage.googleapis.com/v0/b/baekdong-population-2026.firebasestorage.app/o/materials%2Flessons-846b752f424b%2Flessons.hwpx?alt=media",
+    "storageObject": "materials/lessons-846b752f424b/lessons.hwpx",
+    "storageSha256": "846b752f424b87e5092c38134598982ac3c94fee660ab2b6c1363e3dbe4b0981",
+    "size": 476230,
+    "pdfPath": "/materials/lesson-plan.pdf"
+  }
+]

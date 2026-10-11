@@ -20,4 +20,8 @@ P2_굿즈제작_참고자료.pdf처럼 프로젝트만 써도 됩니다.
 분리 재실행: lxml이 설치된 Python으로 python scripts/split-worksheets.py
 로컬 반영: node scripts/sync-materials.mjs 또는 npm run build
 계획서 대조 결과: 2차년도 활동지/차시별 활동지/계획서_대조_결과.md
-2차년도 PPT 폴더는 아직 자동 등록하지 않습니다. 차시 대조 후 별도 등록 예정입니다.
+확정 수업자료는 2026_인구교육_26~30차시_개정본 폴더에 있습니다.
+수업자료등록목록.json에 등록된 PPT·PDF·활동지 원본과 미리보기 이미지만 연결됩니다.
+PPT 미리보기는 글꼴을 보존한 PDF 변환본에서 만든 페이지 이미지를 사용합니다.
+PPT·한글 원본은 Firebase Storage에 보관합니다. 복원: npm run materials:restore
+원본 수정·추가 후 먼저 npm run materials:publish를 실행하고 빌드·배포합니다.

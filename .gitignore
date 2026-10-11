@@ -12,5 +12,12 @@ api-key.txt
 수업 웹앱 프로젝트/source/
 functions/node_modules/
 artifacts/
-# Large original decks stay local until the planned PPT preparation/upload step.
+# Downloadable originals are published to Firebase Storage and kept locally.
+*.ppt
+*.pptx
+*.hwp
+*.hwpx
 /추가자료/2차년도 PPT/
+# Superseded 16~30 revision is retained locally for reference only.
+/추가자료/2026_인구교육_정책제안_개정본/
+/추가자료/보관/

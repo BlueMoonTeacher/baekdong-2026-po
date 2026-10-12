@@ -28,6 +28,10 @@ React + Vite, Firebase Authentication(Google), Firestore(서울), Firebase Hosti
 
 PPT 21개가 1~30차시에 연결되고, 활동지 22개는 한 폴더에 HWPX·PDF로 정리했습니다. `추가자료/수업자료등록목록.json`에 등록된 원본과 PDF, 페이지 이미지만 빌드 때 연결합니다. PPT는 글꼴을 보존한 PDF 변환본에서 만든 531쪽 이미지로 미리보기하며, PDF 저장·PPT 원본 저장·현재 PDF 페이지 크게 보기를 제공합니다. 활동지는 PDF 미리보기와 한글 원본 저장을 제공합니다. 확정 지도안도 HWPX·PDF로 배포합니다.
 
+계획표의 **활동 내용**을 누르면 해당 차시 지도안을 페이지 이미지로 확인하고 PDF로 저장할 수 있습니다. 전체 30차시를 27개 PDF, 45쪽 미리보기로 제공합니다. 원본에서 함께 작성된 3~4·24~25·28~29차시는 같은 묶음 지도안으로 열립니다. 페이지 넘기기와 확대 보기를 지원하며, 원본의 평가 내용도 포함합니다.
+
+지도안 원본 `public/materials/lesson-plan.pdf`를 교체한 뒤 `npm run plans:prepare`로 차시별 PDF와 미리보기를 다시 만듭니다. Python의 `pypdf`·`Pillow`와 Poppler의 `pdftoppm`이 필요합니다. 배포용 파일은 `public/materials/lesson-plans`, 연결 목록은 `src/lesson-plan-previews.json`, PDF 모음 ZIP은 `output/pdf`에 생성됩니다.
+
 ## 남은 진도 자동 배정
 
 첫 화면의 **남은 진도 자동 배정**, 또는 **반별 달력 → 진도 자동 배정**을 사용합니다. Google 로그인 후 미리보고 저장하면 반별 달력에 반영됩니다.

@@ -31,7 +31,7 @@
 .lab-legend i{width:18px;height:14px;border-color:#8fae9d}
 .population-lab .lab-districts button{height:48px;min-height:48px;font-size:16px;font-weight:500;line-height:1.2}
 .population-lab .lab-districts button.active{background:#fff3dc;color:#7a4900;border-color:var(--city-gold);font-weight:750}
-.population-map path[role=button].selected{filter:drop-shadow(0 10px 6px #26362f66)}
+.population-map path[role=button].selected{filter:drop-shadow(0 14px 8px #26362f73)}
 .population-map path[role=button].selected:not(:focus-visible){stroke:#fff;stroke-width:2}
 .population-map path[role=button]:focus-visible{outline:none;stroke:#003c96;stroke-width:3}
 .population-map-label text{fill:#153d2b;stroke:#f8fcf9}.population-map-label.on-dark text{fill:#fff;stroke:#165c3c}
@@ -48,15 +48,64 @@
 .lab-age-row>div:first-child>b{display:flex;align-items:center;gap:8px}.lab-age-row .theme-pictogram{width:30px;height:30px}
 .population-lab .lab-age-row .theme-pictogram{width:64px;height:64px}
 .population-lab{--person-small-height:24px;--person-large-height:75.895px}
-.population-lab .lab-mixed-people{display:flex;align-items:flex-end;flex-wrap:wrap;gap:12px 6px;max-width:none}
-.population-lab .lab-mixed-people .person-small,.population-lab .lab-mixed-key .person-small{height:var(--person-small-height);width:calc(var(--person-small-height) * .625);flex-shrink:0}
-.population-lab .lab-mixed-people .person-large,.population-lab .lab-mixed-key .person-large{height:var(--person-large-height);width:calc(var(--person-large-height) * .625);flex-shrink:0}
-.population-lab .lab-mixed-key{display:flex;gap:14px 24px;flex-wrap:wrap;align-items:flex-end;margin:20px 0 24px}
+.population-lab .lab-mixed-people{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;max-width:none}
+.lab-picture-group{display:grid;align-items:end;gap:10px 6px;min-width:0}
+.lab-picture-group.picture-large{grid-template-columns:repeat(auto-fill,calc(var(--person-large-height) * .625));column-gap:4px}
+.lab-picture-group.picture-small{grid-template-columns:repeat(auto-fill,calc(var(--person-small-height) * .625))}
+.population-lab .lab-mixed-people .lab-picture-group svg.person-small,.population-lab .lab-mixed-key .person-small{height:var(--person-small-height);width:calc(var(--person-small-height) * .625);flex-shrink:0}
+.population-lab .lab-mixed-people .lab-picture-group svg.person-large,.population-lab .lab-mixed-key .person-large{height:var(--person-large-height);width:calc(var(--person-large-height) * .625);flex-shrink:0}
+.population-lab .lab-mixed-key{display:flex;gap:14px 24px;flex-wrap:wrap;align-items:flex-end;margin:12px 0 14px}
 .lab-mixed-key>span{display:flex;gap:9px;align-items:flex-end}.lab-mixed-key b{font-size:14px;white-space:nowrap;padding-bottom:3px}
 .lab-mixed-key .person-filled{fill:#53665b}
+.lab-change-message{display:flex;align-items:center;gap:8px}
+.lab-change-message>svg{flex-shrink:0}
+.population-lab .lab-mixed-key.lab-inline-key{--person-large-height:28px;--person-small-height:14px;margin:0 0 0 auto;align-items:center;gap:8px 14px}
+.lab-inline-key>span{align-items:center;gap:5px}
+.lab-inline-key b{font-size:12px;font-weight:550;padding-bottom:0}
+.lab-change+.lab-mixed-people{margin-top:16px}
+@media(max-width:760px){.population-lab .lab-mixed-key.lab-inline-key{margin-left:0;width:100%}}
+.population-lab.is-easy .lab-detail-content{padding-top:20px;padding-bottom:14px}
+.population-lab.is-easy .lab-detail-content>.lab-caption{margin:10px 0}
+.population-lab .lab-inquiry{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.population-lab .lab-inquiry h3{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 12px;margin:0 0 12px;font-size:18px;color:var(--city-blue)}
+.lab-inquiry h3>span{font-size:12px;font-weight:500;color:#63786c}
+.lab-inquiry ol{margin:0;padding-left:26px;display:grid;gap:7px}
+.lab-inquiry li{font-size:16px;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere;padding-left:3px}
+.lab-inquiry li::marker{font-weight:700;color:var(--city-blue)}
+.lab-playback-controls{display:flex;align-items:center;gap:8px;padding-right:12px;margin-right:2px;border-right:1px solid var(--line)}
+.population-lab .lab-header .lab-repeat[aria-pressed=true]{background:#eaf2fe;color:var(--city-blue);border-color:var(--city-blue);box-shadow:inset 0 0 0 1px var(--city-blue)}
+.population-lab .lab-header button:disabled{opacity:.45;cursor:default}
 @media(prefers-reduced-motion:reduce){.population-map path[role=button],.population-label-lift{transition:none}}
 .population-lab .lab-time-slider input{accent-color:#568bd1}
 .lab-time-slider label{color:#356cae}.population-lab .lab-caption{font-size:14px;color:#52685c;line-height:1.8}
+
+/* Put the month range on one line so the map receives the saved space. */
+.population-lab .lab-time,.population-lab.is-board .lab-time{padding:6px 16px}
+.lab-time-slider{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px}
+.lab-time-slider>span{font-size:12px;color:#6f847c;white-space:nowrap}
+.population-lab .lab-time-slider input{height:28px}
+.lab-data-status{padding:4px 16px;font-size:10px}
+@media(min-width:761px){
+ .explorer .explore-toolbar nav button{height:48px;min-width:120px;font-size:15px}
+ .explorer .level-switch button{height:40px;min-height:40px;font-size:14px}
+ .population-lab:not(.is-board){height:calc(100dvh - 170px)}
+ .population-lab .lab-header,.population-lab.is-board .lab-header{min-height:56px;padding:8px 16px}
+ .population-lab .lab-header button,.population-lab .lab-header select{height:40px;min-height:40px;font-size:15px}
+ .population-lab .lab-header .lab-play,.population-lab .lab-header .lab-icon-button{width:40px;min-width:40px}
+ .population-lab .lab-header .lab-fullscreen{font-size:15px;padding:0 12px}
+ .population-lab .lab-map-toolbar{padding:6px 16px}
+ .population-lab .lab-metric button{height:36px;min-height:36px;min-width:112px;font-size:15px}
+ .population-lab .lab-legend{padding:4px 12px 6px;font-size:11px;gap:6px 12px}
+ .population-lab .lab-districts{grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;padding:0 12px 10px}
+ .population-lab .lab-districts button,.population-lab.is-board .lab-districts button{height:42px;min-height:42px;font-size:15px;padding:5px 6px}
+}
+@media(max-width:760px){
+ .lab-time-slider{grid-template-columns:minmax(0,1fr)}
+ .lab-time-slider>span{display:none}
+ .population-lab .lab-time-slider input{height:40px}
+ .population-lab .lab-districts button{height:44px;min-height:44px}
+}
+@media(pointer:coarse) and (min-width:761px){.population-lab .lab-districts button,.population-lab.is-board .lab-districts button{height:44px;min-height:44px}}
 .history-endpoints{display:grid;grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr);align-items:center;gap:8px;padding-bottom:18px;border-bottom:1px solid #dce5e1}
 .history-endpoints>div{display:flex;flex-direction:column;gap:6px;min-width:0}.history-endpoints>div:last-child{text-align:right}
 .history-endpoints span{font-size:14px;color:#587063}.history-endpoints b{font-size:25px;font-weight:700;white-space:nowrap;line-height:1.3}.history-endpoints small{font-size:14px;margin-left:5px;font-weight:500}
@@ -107,7 +156,10 @@
  .explorer .explore-brand{font-size:22px}.explorer .explore-brand small{font-size:11px}.explorer .back-school{font-size:11px}
  .explorer .explore-toolbar nav{gap:3px}.explorer .explore-toolbar nav button{height:52px;min-width:108px;font-size:14px;padding:0 8px;gap:6px}
  .explorer .level-switch button{height:44px;min-height:44px;min-width:86px;font-size:14px}.explorer .explore-toolbar nav svg{width:18px;height:18px}
- .population-lab .lab-header{min-height:72px;padding:12px}.population-lab .lab-header select{width:165px;font-size:16px}.population-lab .lab-header .lab-fullscreen{padding:0;width:48px;min-width:48px}
+ .population-lab .lab-header{min-height:72px;padding:12px;gap:8px}.population-lab .lab-header select{width:135px;font-size:15px}.population-lab .lab-header .lab-fullscreen{padding:0;width:48px;min-width:48px}
+ .lab-header-actions{gap:5px}.lab-playback-controls{gap:5px;padding-right:0;margin-right:0;border-right:0}
+ .population-lab.is-board .lab-header-actions{position:static;margin-left:auto}
+ .population-lab.is-board .lab-title{width:100%}
  .population-lab .lab-metric button{min-width:0;font-size:16px;padding:0 12px}.lab-city-total{font-size:13px}.lab-city-total strong{font-size:21px}
  .population-lab .lab-districts button{font-size:14px;height:46px;min-height:46px}
  .population-lab .lab-detail-tabs button,.population-lab.is-board .lab-detail-tabs button{font-size:13px;height:52px;min-height:52px;white-space:normal;word-break:keep-all}
@@ -117,4 +169,66 @@
  .change-chart-axis,.change-chart-row{grid-template-columns:47px minmax(0,1fr) 73px;gap:7px}.change-chart-row>b{font-size:14px}.change-chart-row>span{font-size:14px}.change-chart-axis{font-size:10px}.change-chart-row{height:44px}
  .explorer .lifecycle-filter button{height:105px;min-height:105px;padding:10px 2px;gap:7px}.explorer .lifecycle-filter button>span{font-size:14px}.lifecycle-filter .theme-pictogram{width:42px;height:42px}
  .explorer .policy-card h2{font-size:24px}.population-lab .lab-header .level-switch button{height:44px;min-height:44px;font-size:14px}
+}
+
+/* Keep navigation beside the title and give its former row to the map. */
+.explorer .explore-header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;border-bottom:1px solid var(--line)}
+.explore-header .explore-brand{min-width:0}
+.explorer .explore-brand,.explorer .explore-brand:hover,.explorer .explore-brand:focus{ text-decoration:none }
+.explore-header .back-school{white-space:nowrap;font-size:12px}
+.explorer .explore-header .explore-toolbar{padding:0;border:0;background:transparent;min-width:0;justify-content:flex-end;flex-direction:row}
+.explore-header .explore-toolbar-inner{width:auto;max-width:none;margin:0;padding:0;gap:18px;justify-content:flex-end}
+.explorer .explore-header .explore-toolbar nav{gap:6px;justify-content:flex-end;width:auto;overflow:visible}
+.explorer .explore-header .explore-toolbar nav button{height:40px;min-width:104px;padding:0 10px;font-size:14px;gap:7px}
+.explorer .explore-header .explore-toolbar nav svg{width:18px;height:18px}
+.explorer .explore-header .level-switch button{height:40px;min-height:40px;font-size:14px}
+@media(min-width:1440px){.population-lab:not(.is-board){height:calc(100dvh - 110px)}}
+@media(max-width:1439px){
+ .explorer .explore-header{grid-template-columns:minmax(0,1fr) auto;height:auto;min-height:80px;padding:12px 20px;gap:8px 16px}
+ .explore-header .explore-toolbar{grid-column:1/-1;order:3}
+}
+@media(max-width:760px){
+ .explorer .explore-header{padding:12px 16px;gap:10px 12px}
+ .explorer .explore-header .explore-brand{font-size:20px;gap:10px}
+ .explorer .explore-header .explore-brand small{font-size:11px}
+ .explore-header .explore-city-logo{width:40px;height:40px}
+ .explore-header .back-school{font-size:11px;gap:4px}
+ .explore-header .explore-toolbar-inner{width:100%;flex-direction:column;gap:8px}
+ .explorer .explore-header .explore-toolbar nav{width:100%;flex-wrap:wrap}
+ .explorer .explore-header .explore-toolbar nav button{flex:1 1 96px;min-width:0;font-size:13px;padding:0 6px}
+ .explore-header .level-switch{align-self:flex-end}
+}
+
+/* One control row: metric, month, playback, reset and fullscreen. */
+.population-lab{grid-template-rows:auto minmax(0,1fr) auto auto}
+.population-lab.is-board{grid-template-rows:auto auto minmax(0,1fr) auto auto}
+.population-lab .lab-header.lab-map-toolbar{justify-content:space-between;flex-wrap:wrap;gap:12px 16px;padding:6px 16px;min-height:54px;background:#f8fbfa}
+.lab-map-controls{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}
+.population-lab .lab-header.lab-map-toolbar .lab-header-actions{margin-left:auto;position:static;gap:6px}
+.population-lab .lab-header.lab-map-toolbar .lab-header-actions button{height:32px;min-height:32px;width:32px;min-width:32px;padding:0}
+.population-lab .lab-header.lab-map-toolbar .lab-header-actions button svg{width:18px;height:18px}
+.lab-header-actions .lab-playback-controls{gap:6px;padding-right:8px;margin-right:0}
+.population-lab .lab-header.lab-map-toolbar .lab-fullscreen{padding:0;width:32px;min-width:32px}
+.population-lab .lab-header.lab-map-toolbar .lab-header-actions>.lab-icon-button{display:inline-flex}
+.lab-board-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:10px 24px;background:#fff;border-bottom:1px solid var(--line)}
+.lab-map-canvas{position:relative;min-height:0;min-width:0}
+.lab-map-canvas .lab-city-total{position:absolute;top:12px;left:16px;width:auto;padding:4px 10px;gap:7px;background:#ffffffed;border:1px solid var(--line);border-radius:6px;font-size:13px;pointer-events:none}
+.lab-map-canvas .lab-city-total strong{font-size:22px}
+@media(min-width:761px){.lab-map-canvas .population-map-stage{height:100%}}
+@media(max-width:760px){
+ .population-lab{grid-template-rows:repeat(4,auto)}
+ .population-lab.is-board{grid-template-rows:repeat(5,auto)}
+ .population-lab .lab-header.lab-map-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;padding:10px 12px;gap:8px}
+ .lab-map-controls{display:contents}
+ .lab-map-controls .lab-metric{grid-column:1/-1}
+ .lab-map-controls .lab-timeline-control{min-width:0}
+ .population-lab .lab-header.lab-map-toolbar select{width:100%;min-width:0;height:44px;min-height:44px;padding:0 18px 0 8px;font-size:14px}
+ .population-lab .lab-header.lab-map-toolbar .lab-header-actions button{width:44px;min-width:44px;height:44px;min-height:44px}
+ .lab-header-actions .lab-playback-controls{padding-right:0}
+ .population-lab .lab-header.lab-map-toolbar .lab-metric button{height:44px;min-height:44px}
+ .lab-board-header{padding:12px;gap:8px}
+ .lab-board-header .lab-board-level{width:100%}
+ .lab-map-canvas .population-map-stage{padding-top:46px}
+ .lab-map-canvas .lab-city-total{top:8px;left:12px;font-size:12px}
+ .lab-map-canvas .lab-city-total strong{font-size:19px}
 }

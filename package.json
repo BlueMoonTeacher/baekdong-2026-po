@@ -1,6 +1,28 @@
 {
-  "name": "ongyeot-population-scheduler", "version": "1.0.0", "private": true, "type": "module",
-  "scripts": { "dev": "vite --host 127.0.0.1", "prebuild": "node scripts/sync-materials.mjs", "build": "vite build", "deploy":"npm run build && firebase deploy --only hosting", "preview": "vite preview --host 127.0.0.1", "test": "node --test tests/*.test.mjs", "materials:publish":"node scripts/publish-material-originals.cjs", "materials:restore":"node scripts/restore-material-originals.mjs" },
-  "dependencies": { "firebase": "^12.10.0", "lucide-react": "^0.468.0", "react": "^19.0.0", "react-dom": "^19.0.0" },
-  "devDependencies": { "vite": "^6.4.1", "@vitejs/plugin-react": "^4.4.1" }
+  "name": "ongyeot-population-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "prebuild": "node scripts/sync-materials.mjs",
+    "build": "vite build",
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.mjs",
+    "materials:publish": "node scripts/publish-material-originals.cjs",
+    "materials:restore": "node scripts/restore-material-originals.mjs",
+    "plans:prepare": "python scripts/prepare-lesson-plans.py"
+  },
+  "dependencies": {
+    "fflate": "^0.8.3",
+    "firebase": "^12.10.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "vite": "^6.4.1",
+    "@vitejs/plugin-react": "^4.4.1"
+  }
 }

@@ -12,6 +12,8 @@ api-key.txt
 수업 웹앱 프로젝트/source/
 functions/node_modules/
 artifacts/
+/tmp/pdfs/
+/output/pdf/
 # Downloadable originals are published to Firebase Storage and kept locally.
 *.ppt
 *.pptx

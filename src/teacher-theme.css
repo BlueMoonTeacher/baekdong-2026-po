@@ -235,14 +235,42 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .curriculum-table .row-status{font-size:.77rem}
 .curriculum-table .future-cell .plan-cell-images img{width:58px;height:58px}
 .curriculum-table .community-cell .plan-cell-images img{width:52px;height:58px}
-.curriculum-table .lesson-materials{display:grid;gap:9px;justify-content:center}
-.curriculum-table .material-item{display:flex;align-items:center;gap:5px}
+.curriculum-table .lesson-materials{display:flex;gap:6px;justify-content:center;align-items:center;padding-left:clamp(0px,calc(100% - 94px),12px)}
+.curriculum-table .material-item{display:flex;align-items:center;gap:4px;flex-shrink:0}
 .curriculum-table .material-item>button{margin:0;min-height:34px;border-radius:7px;line-height:1.2}
-.curriculum-table .material-item .material-download{width:60px;padding:8px 4px;font-size:.8rem;font-weight:600}
-.curriculum-table .material-item .material-preview-button{width:30px;padding:7px 5px;flex-shrink:0}
+.curriculum-table .material-item .material-preview-button{width:44px;padding:8px 2px;font-size:.8rem;font-weight:600;white-space:nowrap}
+.curriculum-table .materials-download-all{display:inline-flex;align-items:center;justify-content:center;width:32px;min-height:34px;margin:0;padding:7px;background:#edf7f9;color:#147d94;border-radius:7px;line-height:1.2}
+.curriculum-table .materials-download-all:hover{background:#dceff3}
+.curriculum-table .materials-download-all:focus-visible{outline:3px solid #e6b740;outline-offset:2px}
+.download-spinner{animation:download-spin 1s linear infinite}
+@keyframes download-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.download-spinner{animation:none}}
 .curriculum-table .material-ppt>button{background:#fff0f1;color:#ad4658}
 .curriculum-table .material-ppt>button:hover{background:#ffe2e6}
 .curriculum-table .material-worksheet>button{background:#eaf3ff;color:#356da1}
 .curriculum-table .material-worksheet>button:hover{background:#dceaff}
 .curriculum-table .material-item>button:focus-visible{outline:3px solid #e6b740;outline-offset:2px}
-@media(max-width:600px){.curriculum-table{min-width:1200px}.curriculum-table .material-item>button{min-height:40px}.curriculum-table .material-item .material-preview-button{width:34px}.curriculum-table .materials-col{width:9%}.curriculum-table .content-col{width:32%}}
+
+/* Keep each lesson's material actions on one line and give the activity text room. */
+.curriculum-table{min-width:1280px}
+.curriculum-table .project-col{width:8%}
+.curriculum-table .elements-col{width:9%}
+.curriculum-table .topic-col{width:8%}
+.curriculum-table .content-col{width:40%}
+.curriculum-table .period-col{width:4%}
+.curriculum-table .future-col{width:7%}
+.curriculum-table .community-col{width:5%}
+.curriculum-table .output-col{width:7%}
+.curriculum-table .materials-col{width:8%}
+.curriculum-table .materials-download-col{width:4%}
+.curriculum-table tbody th,.curriculum-table tbody td{padding:8px 10px;line-height:1.65}
+.curriculum-table .activity-content{padding:8px 14px!important}
+.curriculum-table .activity-content>button{line-height:1.65}
+.curriculum-table .materials-cell{padding:8px 4px!important}
+.curriculum-table .materials-download-cell{padding:8px 4px;text-align:center;border-right:0}
+.curriculum-table .plan-elements{gap:10px;line-height:1.65}
+.curriculum-table .future-cell>span{line-height:1.6;margin-top:6px}
+.curriculum-table .future-cell .plan-cell-images img{width:46px;height:46px}
+.curriculum-table .community-cell .plan-cell-images img{width:42px;height:46px}
+.curriculum-table thead th{padding:12px 6px;line-height:1.6}
+@media(max-width:600px){.curriculum-table{min-width:1320px}.curriculum-table .material-item>button,.curriculum-table .materials-download-all{min-height:40px}.curriculum-table .materials-download-all{width:40px}.curriculum-table .materials-col{width:9%}.curriculum-table .content-col{width:39%}}

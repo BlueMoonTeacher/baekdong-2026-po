@@ -8,7 +8,8 @@ export default function PopulationMap({rows,code,onSelect,metric,easy}){
  const pointers=useRef(new Map()),gesture=useRef(null);
  const byCode=new Map(rows.map(r=>[r.code,r]));
  const districts=[...map.districts.filter(d=>d.code!==code),...map.districts.filter(d=>d.code===code)];
- const lift=d=>({transform:d.code===code?'translateY(-12px) scale(1.06)':'translateY(0) scale(1)',transformOrigin:`${d.label[0]}px ${d.label[1]}px`});
+ // Wondong reaches the northern edge; a top anchor keeps its enlarged outline in view.
+ const lift=d=>({transform:d.code===code?'translateY(-20px) scale(1.10)':'translateY(0) scale(1)',transformOrigin:`${d.label[0]}px ${d.code==='32000'?40:d.label[1]}px`});
  const constrain=v=>({...v,x:Math.max(0,Math.min(700-700/v.zoom,v.x)),y:Math.max(0,Math.min(630-630/v.zoom,v.y))});
  function zoomBy(factor){setView(v=>{const zoom=Math.max(1,Math.min(3,v.zoom*factor));return constrain({zoom,x:v.x+(700/v.zoom-700/zoom)/2,y:v.y+(630/v.zoom-630/zoom)/2});});}
  function down(e){

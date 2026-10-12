@@ -1,10 +1,13 @@
 import React,{useEffect,useId,useRef,useState} from 'react';
-import {ArrowDown,ArrowUp,BarChart3,ChartNoAxesCombined,Equal,GitCompareArrows,Maximize,Minimize,Pause,Play,Plus,RotateCcw,Users} from 'lucide-react';
+import {ArrowDown,ArrowUp,BarChart3,ChartNoAxesCombined,Equal,GitCompareArrows,Maximize,Minimize,Pause,Play,Plus,Repeat,RotateCcw,Users} from 'lucide-react';
 import map from './map.json';
 import PopulationMap from './PopulationMap.jsx';
 import SgisDetail from './SgisDetail.jsx';
 import PictogramImage from './PictogramImage.jsx';
+import {nextPlaybackPeriod} from './playback.mjs';
 import {number as n,monthText,pct,ageGroups,districtHistory,changeText,populationBins,changeColors,changeScale,changePictureUnit,populationPictures} from './domain.mjs';
+
+const districtsByName=map.districts.toSorted((a,b)=>a.name.localeCompare(b.name,'ko'));
 
 export function LevelSwitch({mode,onChange}){
  return <div className="level-switch" aria-label="학년별 탐험"><button aria-pressed={mode==='low'} className={mode==='low'?'selected':''} onClick={()=>onChange('low')}>저학년</button><button aria-pressed={mode==='high'} className={mode==='high'?'selected':''} onClick={()=>onChange('high')}>고학년</button><button aria-pressed={mode==='sixth'} className={mode==='sixth'?'selected':''} onClick={()=>onChange('sixth')}>6학년 수업</button></div>;
@@ -13,14 +16,30 @@ function PersonMark({fraction=1,large=false}){
  const id=useId().replaceAll(':','');
  return <svg className={large?'person-large':'person-small'} viewBox="0 0 20 32" aria-hidden="true"><defs><clipPath id={id}><rect width={20*fraction} height="32"/></clipPath></defs><g className="person-empty"><circle cx="10" cy="5" r="4"/><path d="M5 11h10l4 11-3 1-3-8v16H10.8v-10H9.2v10H7V15l-3 8-3-1z"/></g><g className="person-filled" clipPath={`url(#${id})`}><circle cx="10" cy="5" r="4"/><path d="M5 11h10l4 11-3 1-3-8v16H10.8v-10H9.2v10H7V15l-3 8-3-1z"/></g></svg>;
 }
-function PictureKey(){
- return <div className="lab-picture-key lab-mixed-key"><span><PersonMark large/><b>큰 그림 = 10,000명</b></span><span><PersonMark/><b>작은 그림 = 1,000명</b></span></div>;
+function PictureKey({compact=false}){
+ return <div className={`lab-picture-key lab-mixed-key ${compact?'lab-inline-key':''}`}><span><PersonMark large/><b>큰 그림 = 10,000명</b></span><span><PersonMark/><b>작은 그림 = 1,000명</b></span></div>;
 }
 function Pictogram({total,unit=1000,mixed=false}){
  const value=total/unit,pictures=mixed?populationPictures(total):Array.from({length:Math.ceil(value)},(_,i)=>({unit,fraction:Math.min(1,value-i)}));
  return <div className={`lab-people ${mixed?'lab-mixed-people':''}`} role="img" aria-label={`${n(total)}명, ${mixed?'큰 사람 그림은 10,000명, 작은 사람 그림은 1,000명':`사람 그림 하나는 ${n(unit)}명`}`}>
-  {pictures.map((p,i)=><PersonMark key={i} fraction={p.fraction} large={mixed&&p.unit===10000}/>)}
+  {mixed?[10000,1000].map(size=>{const group=pictures.filter(p=>p.unit===size);return group.length>0&&<div key={size} className={`lab-picture-group ${size===10000?'picture-large':'picture-small'}`}>{group.map((p,i)=><PersonMark key={i} fraction={p.fraction} large={size===10000}/>)}</div>;}):pictures.map((p,i)=><PersonMark key={i} fraction={p.fraction}/>)}
  </div>;
+}
+function InquiryQuestions({easy,name}){
+ const questions=easy?[
+  '큰 사람 그림 하나와 작은 사람 그림 하나는 각각 몇 명을 나타낼까요?',
+  '지도에서 사람이 가장 많이 사는 동네와 가장 적게 사는 동네는 어디일까요?',
+  `${name}과 다른 동네를 골라 보세요. 어느 동네에 사람이 더 많이 살까요?`,
+  '‘달라졌어요’를 눌러 보세요. 처음보다 사람 수가 늘었나요, 줄었나요?',
+  '사람이 많이 사는 동네에는 어떤 장소나 시설이 필요할까요?',
+ ]:[
+  `${name}의 인구는 양산시 전체의 몇 %일까요? 다른 동네와 비교해 보세요.`,
+  '인구가 더 많은 동네와 더 빠르게 늘어난 동네는 같을까요? 증가한 수와 증가율을 비교해 보세요.',
+  '월별 인구 변화를 살펴보세요. 가장 크게 늘거나 줄어든 때는 언제인가요?',
+  '인구가 변한 이유를 알아보려면 어떤 자료가 더 필요할까요? 이사·출생·사망을 생각해 보세요.',
+  '인구 자료를 근거로 우리 동네에 필요한 시설이나 정책을 제안한다면 무엇일까요?',
+ ];
+ return <section className="lab-inquiry" aria-label={`${easy?'저학년':'고학년'} 탐구 질문`}><h3>함께 탐구해요 <span>{easy?'저학년':'고학년'} · 질문 5개</span></h3><ol>{questions.map(question=><li key={question}>{question}</li>)}</ol></section>;
 }
 function Comparison({selected,other,easy}){
  const max=Math.max(selected.total,other.total,1),diff=Math.abs(selected.total-other.total);
@@ -50,18 +69,23 @@ function History({history,easy}){
  </div>;
 }
 export default function PopulationLab({data,connection,period,onPeriod,code,onCode,mode,onMode,addNote}){
- const [board,setBoard]=useState(false),[metric,setMetric]=useState('population'),[detail,setDetail]=useState('population'),[compare,setCompare]=useState('31000'),[playing,setPlaying]=useState(false),[resetVersion,setResetVersion]=useState(0);
- const root=useRef(null),wasFullscreen=useRef(false);
+ const [board,setBoard]=useState(false),[metric,setMetric]=useState('population'),[detail,setDetail]=useState('population'),[compare,setCompare]=useState('31000'),[playing,setPlaying]=useState(data.periods.length>1),[repeat,setRepeat]=useState(false),[resetVersion,setResetVersion]=useState(0);
+ const root=useRef(null),wasFullscreen=useRef(false),playbackInitialized=useRef(false);
  const easy=mode==='low',rows=data.region.filter(r=>r.period===period),selected=rows.find(r=>r.code===code)||rows[0],city=rows.reduce((s,r)=>s+r.total,0);
  const comparisonCode=compare===selected?.code?rows.find(r=>r.code!==selected.code)?.code:compare,other=rows.find(r=>r.code===comparisonCode);
  const history=districtHistory(data,selected?.code,period),index=data.periods.indexOf(period);
  const age=data.ages.filter(r=>r.period<=period).at(-1),groups=age?ageGroups(age.bands):[];
  useEffect(()=>{if(easy&&detail==='ages')setDetail('population');},[easy,detail]);
  useEffect(()=>{
+  if(playbackInitialized.current||!data.periods.length)return;
+  playbackInitialized.current=true;
+  onPeriod(data.periods[0]);
+ },[data.periods,onPeriod]);
+ useEffect(()=>{
   if(!playing)return;
-  const timer=setTimeout(()=>{if(index>=data.periods.length-1){setPlaying(false);return;}onPeriod(data.periods[index+1]);},1800);
+  const timer=setTimeout(()=>{const next=nextPlaybackPeriod(data.periods,period,repeat);if(next===null){setPlaying(false);return;}onPeriod(next);},1800);
   return()=>clearTimeout(timer);
- },[playing,index,data.periods,onPeriod]);
+ },[playing,period,repeat,data.periods,onPeriod]);
  useEffect(()=>{
   const changed=()=>{if(document.fullscreenElement){wasFullscreen.current=true;}else if(wasFullscreen.current){wasFullscreen.current=false;setBoard(false);setPlaying(false);}};
   const esc=e=>{if(e.key==='Escape'){setPlaying(false);setBoard(false);}};
@@ -75,33 +99,47 @@ export default function PopulationLab({data,connection,period,onPeriod,code,onCo
  }
  function moveMonth(next){setPlaying(false);onPeriod(data.periods[Math.max(0,Math.min(data.periods.length-1,next))]);}
  function play(){if(!playing&&index>=data.periods.length-1)onPeriod(data.periods[0]);setPlaying(v=>!v);}
- function reset(){setPlaying(false);onPeriod(data.latestPeriod);onCode('25300');setCompare('31000');setMetric('population');setDetail('population');setResetVersion(v=>v+1);}
+ function reset(){setPlaying(false);onPeriod(data.latestPeriod);onCode('55000');setCompare('31000');setMetric('population');setDetail('population');setResetVersion(v=>v+1);}
  const stateText={live:'공공데이터 연결',loading:'저장본 · 연결 확인 중',stale:'저장본 · 갱신 지연',snapshot:'저장본 · 오프라인',failed:'저장본 · 오프라인'}[connection];
  const ChangeIcon=!Number.isFinite(selected?.change)?Users:selected.change>0?ArrowUp:selected.change<0?ArrowDown:Equal;
  if(!selected)return <p>이달의 동네 자료가 없습니다.</p>;
- return <section ref={root} className={`population-lab ${board?'is-board':''} ${easy?'is-easy':'is-advanced'}`} aria-label="양산 인구 탐험 공간">
-  <div className="lab-header">{board&&<div className="lab-title"><img src="/images/yangsan-city-logo.png" alt=""/><h1>양산 인구 탐험</h1></div>}<div className="lab-board-level"><LevelSwitch mode={mode} onChange={onMode}/></div><div className="lab-timeline-control"><button className="lab-play" title={playing?'시간 멈추기':'시간 재생'} aria-label={playing?'시간 멈추기':'시간 재생'} aria-pressed={playing} onClick={play}>{playing?<Pause size={21}/>:<Play size={21}/>}</button><select aria-label="인구 기준 월" value={period} onChange={e=>{setPlaying(false);onPeriod(e.target.value);}}>{data.periods.toReversed().map(p=><option key={p} value={p}>{monthText(p)}</option>)}</select></div><div className="lab-header-actions"><button className="lab-icon-button" title="처음부터 탐험" aria-label="탐험 처음으로" onClick={reset}><RotateCcw size={21}/></button><button className="lab-fullscreen" aria-label={board?'전체 화면 종료':'전체 화면'} title={board?'전체 화면 종료':'전체 화면'} onClick={toggleBoard}>{board?<Minimize size={21}/>:<Maximize size={21}/>}<span>{board?'전체 화면 종료':'전체 화면'}</span></button></div></div>
-  <div className="lab-map-toolbar"><div className="lab-metric" aria-label="지도에 표시할 정보"><button aria-pressed={metric==='population'} className={metric==='population'?'active':''} onClick={()=>{setMetric('population');setDetail('population');}}><Users size={20}/>사람 수</button><button aria-pressed={metric==='change'} className={metric==='change'?'active':''} onClick={()=>{setMetric('change');setDetail('change');}}><ChartNoAxesCombined size={20}/>{easy?'늘었을까?':'인구 변화'}</button></div><span className="lab-city-total">양산시 전체 <strong>{n(city)}</strong>명</span></div>
+ return <section ref={root} className={`population-lab ${board?'is-board':''} ${easy?'is-easy':'is-advanced'}`} aria-label="양산시 인구 살펴보기 공간">
+  {board&&<div className="lab-board-header"><div className="lab-title"><img src="/images/yangsan-city-logo.png" alt=""/><h1>양산시 인구 살펴보기</h1></div><div className="lab-board-level"><LevelSwitch mode={mode} onChange={onMode}/></div></div>}
+  <div className="lab-header lab-map-toolbar">
+   <div className="lab-map-controls">
+   <div className="lab-metric" aria-label="지도에 표시할 정보"><button aria-pressed={metric==='population'} className={metric==='population'?'active':''} onClick={()=>{setMetric('population');setDetail('population');}}><Users size={20}/>사람 수</button><button aria-pressed={metric==='change'} className={metric==='change'?'active':''} onClick={()=>{setMetric('change');setDetail('change');}}><ChartNoAxesCombined size={20}/>{easy?'늘었을까?':'인구 변화'}</button></div>
+   <div className="lab-timeline-control"><select aria-label="인구 기준 월" value={period} onChange={e=>{setPlaying(false);onPeriod(e.target.value);}}>{data.periods.toReversed().map(p=><option key={p} value={p}>{monthText(p)}</option>)}</select></div>
+   </div>
+   <div className="lab-header-actions">
+    <div className="lab-playback-controls" role="group" aria-label="인구 변화 자동 재생">
+     <button className="lab-play" title={playing?'자동 재생 멈추기':'자동 재생 시작'} aria-label={playing?'자동 재생 멈추기':'자동 재생 시작'} aria-pressed={playing} disabled={data.periods.length<2} onClick={play}>{playing?<Pause size={21}/>:<Play size={21}/>}</button>
+     <button className="lab-icon-button lab-repeat" title={repeat?'반복 재생 끄기':'반복 재생 켜기'} aria-label="반복 재생" aria-pressed={repeat} disabled={data.periods.length<2} onClick={()=>setRepeat(v=>!v)}><Repeat size={21}/></button>
+    </div>
+    <button className="lab-icon-button" title="처음부터 탐험" aria-label="탐험 처음으로" onClick={reset}><RotateCcw size={21}/></button>
+    <button className="lab-fullscreen" aria-label={board?'전체 화면 종료':'전체 화면'} title={board?'전체 화면 종료':'전체 화면'} onClick={toggleBoard}>{board?<Minimize size={21}/>:<Maximize size={21}/>}</button>
+   </div>
+  </div>
   <div className="lab-workspace">
-   <section className="lab-map-area" aria-label="동네 선택"><PopulationMap key={resetVersion} rows={rows} code={selected.code} onSelect={onCode} metric={metric} easy={easy}/><div className="lab-legend" aria-label="지도 색상 기준">{(metric==='population'?populationBins.map(b=>[b.color,b.label]):[[changeColors.increase,'늘었어요'],[changeColors.decrease,'줄었어요'],[changeColors.unchanged,'같아요'],[changeColors.missing,'자료 없음']]).map(([color,label])=><span key={label}><i style={{background:color}}/>{label}</span>)}</div><div className="lab-districts" aria-label="동네 이름으로 선택">{map.districts.map(d=><button key={d.code} aria-pressed={selected.code===d.code} className={selected.code===d.code?'active':''} onClick={()=>onCode(d.code)}>{d.name}</button>)}</div></section>
+   <section className="lab-map-area" aria-label="동네 선택"><div className="lab-map-canvas"><PopulationMap key={resetVersion} rows={rows} code={selected.code} onSelect={onCode} metric={metric} easy={easy}/><span className="lab-city-total">양산시 전체 <strong>{n(city)}</strong>명</span></div><div className="lab-legend" aria-label="지도 색상 기준">{(metric==='population'?populationBins.map(b=>[b.color,b.label]):[[changeColors.increase,'늘었어요'],[changeColors.decrease,'줄었어요'],[changeColors.unchanged,'같아요'],[changeColors.missing,'자료 없음']]).map(([color,label])=><span key={label}><i style={{background:color}}/>{label}</span>)}</div><div className="lab-districts" aria-label="동네 이름으로 선택">{districtsByName.map(d=><button key={d.code} aria-pressed={selected.code===d.code} className={selected.code===d.code?'active':''} onClick={()=>onCode(d.code)}>{d.name}</button>)}</div></section>
    <aside className="lab-detail" aria-label="선택한 동네 상세">
     <div className="lab-district-heading" aria-live="polite" aria-atomic="true"><div><span>지금 살펴보는 동네</span><h2>{selected.name}</h2></div><div className="lab-selected-total"><strong>{n(selected.total)}</strong><span>명 · {monthText(period)}</span></div></div>
-    <div className="lab-detail-tabs" role="tablist" aria-label="동네 탐구 주제">{[['population',easy?'그림으로':'인구 구성',Users],['change',easy?'전과 지금':'월별 변화',BarChart3],['compare','동네 비교',GitCompareArrows],['sgis','동네 자세히',Users],...(!easy?[['ages','양산의 세대',Users]]:[])].map(([id,label,Icon])=><button key={id} id={`lab-tab-${id}`} role="tab" aria-selected={detail===id} aria-controls="lab-detail-panel" className={detail===id?'active':''} onClick={()=>setDetail(id)}><Icon size={19}/>{label}</button>)}</div>
+    <div className="lab-detail-tabs" role="tablist" aria-label="동네 탐구 주제">{[['population',easy?'그림으로':'인구 구성',Users],['change',easy?'달라졌어요':'월별 변화',BarChart3],['compare','동네 비교',GitCompareArrows],['sgis','동네 자세히',Users],...(!easy?[['ages','양산의 세대',Users]]:[])].map(([id,label,Icon])=><button key={id} id={`lab-tab-${id}`} role="tab" aria-selected={detail===id} aria-controls="lab-detail-panel" className={detail===id?'active':''} onClick={()=>setDetail(id)}><Icon size={19}/>{label}</button>)}</div>
     <div className="lab-detail-content" id="lab-detail-panel" role="tabpanel" aria-labelledby={`lab-tab-${detail}`} tabIndex="0">
      {detail==='population'&&<>
-      <div className={`lab-change ${selected.change<0?'decrease':''}`}><ChangeIcon size={24}/><span>지난달보다 <b>{changeText(selected.change,easy)}</b></span></div>
-      {easy?<><PictureKey/><Pictogram total={selected.total} mixed/><p className="lab-caption">마지막 작은 그림은 남은 사람 수만큼 칠했어요.</p><p className="lab-question">이곳에 사는 사람들은 어디에서 만날까요?</p></>:<><div className="lab-share"><span>양산시 인구에서 차지하는 비율</span><strong>{pct(selected.total,city).toFixed(1)}<small>%</small></strong><div className="lab-bar-track"><span style={{width:`${pct(selected.total,city)}%`}}/></div></div><h3>남녀 인구 구성</h3><div className="lab-sex-bar" role="img" aria-label={`남자 ${n(selected.male)}명, 여자 ${n(selected.female)}명`}><span style={{width:`${pct(selected.male,selected.total)}%`}}/><span style={{width:`${pct(selected.female,selected.total)}%`}}/></div><div className="lab-sex-counts"><div><i/><span>남자</span><b>{n(selected.male)}명</b><small>{pct(selected.male,selected.total).toFixed(1)}%</small></div><div><i/><span>여자</span><b>{n(selected.female)}명</b><small>{pct(selected.female,selected.total).toFixed(1)}%</small></div></div><p className="lab-question">땅의 넓이와 사람 수는 어떤 관계일까요?</p></>}
+      <div className={`lab-change ${selected.change<0?'decrease':''}`}><span className="lab-change-message"><ChangeIcon size={24}/><span>지난달보다 <b>{changeText(selected.change,easy)}</b></span></span>{easy&&<PictureKey compact/>}</div>
+      {easy?<><Pictogram total={selected.total} mixed/><p className="lab-caption">마지막 작은 그림은 남은 사람 수만큼 칠했어요.</p></>:<><div className="lab-share"><span>양산시 인구에서 차지하는 비율</span><strong>{pct(selected.total,city).toFixed(1)}<small>%</small></strong><div className="lab-bar-track"><span style={{width:`${pct(selected.total,city)}%`}}/></div></div><h3>남녀 인구 구성</h3><div className="lab-sex-bar" role="img" aria-label={`남자 ${n(selected.male)}명, 여자 ${n(selected.female)}명`}><span style={{width:`${pct(selected.male,selected.total)}%`}}/><span style={{width:`${pct(selected.female,selected.total)}%`}}/></div><div className="lab-sex-counts"><div><i/><span>남자</span><b>{n(selected.male)}명</b><small>{pct(selected.male,selected.total).toFixed(1)}%</small></div><div><i/><span>여자</span><b>{n(selected.female)}명</b><small>{pct(selected.female,selected.total).toFixed(1)}%</small></div></div></>}
      </>}
      {detail==='change'&&<History history={history} easy={easy}/>}
-     {detail==='compare'&&<><label className="lab-compare-select">비교할 동네<select aria-label="비교할 동네" value={comparisonCode} onChange={e=>setCompare(e.target.value)}>{map.districts.filter(d=>d.code!==selected.code).map(d=><option key={d.code} value={d.code}>{d.name}</option>)}</select></label>{other&&<Comparison selected={selected} other={other} easy={easy}/>}</>}
+     {detail==='compare'&&<><label className="lab-compare-select">비교할 동네<select aria-label="비교할 동네" value={comparisonCode} onChange={e=>setCompare(e.target.value)}>{districtsByName.filter(d=>d.code!==selected.code).map(d=><option key={d.code} value={d.code}>{d.name}</option>)}</select></label>{other&&<Comparison selected={selected} other={other} easy={easy}/>}</>}
      {detail==='sgis'&&<SgisDetail code={selected.code} easy={easy}/>}
      {detail==='ages'&&<><div className="lab-scope"><b>양산시 전체의 나이 자료</b><p>{age?`${monthText(age.period)} · ${n(age.total)}명`:'이때까지 검산된 연령 자료가 없습니다.'}</p><p>선택한 {selected.name}의 나이 분포는 아니에요.{age&&age.period!==period?' 선택한 달의 합계가 맞지 않아 검산된 최근 달을 보여줘요.':''}</p></div>{groups.map(g=><div className="lab-age-row" key={g.min}><div><b><PictogramImage name={g.icon}/>{g.label}</b><span>{n(g.total)}명 · {pct(g.total,age.total).toFixed(1)}%</span></div><div className="lab-bar-track"><span style={{width:`${pct(g.total,age.total)}%`,background:g.color}}/></div></div>)}{age&&<details><summary>5세 단위로 자세히 보기</summary><table><thead><tr><th>나이</th><th>인구</th><th>비율</th></tr></thead><tbody>{age.bands.map(b=><tr key={b.min}><td>{b.label}</td><td>{n(b.total)}</td><td>{pct(b.total,age.total).toFixed(1)}%</td></tr>)}</tbody></table></details>}</>}
      {selected.derived&&<p className="lab-derived">강서동은 시 전체에서 다른 12개 동네를 뺀 계산값이에요. 전월 증감도 같은 기준이에요.</p>}
+     <InquiryQuestions easy={easy} name={selected.name}/>
     </div>
     {mode==='sixth'&&<div className="lab-evidence-action"><button className="explore-primary" onClick={addNote}><Plus size={19}/>제안서에 인구 근거 담기</button></div>}
    </aside>
   </div>
-  <div className="lab-time"><div className="lab-time-slider"><div><span>{monthText(data.periods[0])}</span><label htmlFor="lab-month">{monthText(period)}</label><span>{monthText(data.periods.at(-1))}</span></div><input id="lab-month" aria-label="탐색할 월" aria-valuetext={monthText(period)} type="range" min="0" max={data.periods.length-1} step="1" value={Math.max(0,index)} onChange={e=>moveMonth(Number(e.target.value))}/></div></div>
+  <div className="lab-time"><div className="lab-time-slider"><span className="lab-time-start">{monthText(data.periods[0])}</span><label className="sr-only" htmlFor="lab-month">{monthText(period)}</label><input id="lab-month" aria-label="탐색할 월" aria-valuetext={monthText(period)} type="range" min="0" max={data.periods.length-1} step="1" value={Math.max(0,index)} onChange={e=>moveMonth(Number(e.target.value))}/><span className="lab-time-end">{monthText(data.periods.at(-1))}</span></div></div>
   <div className="lab-data-status"><span><i className={connection==='live'?'live':''}/>{stateText} · 수집 {data.fetchedAt.slice(0,10)}</span><span>주민등록 인구 · 빈 달은 제외 · 행정경계 참고 지도</span></div>
  </section>;
 }

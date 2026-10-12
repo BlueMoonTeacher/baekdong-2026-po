@@ -1,6 +1,9 @@
 import { defineConfig, loadEnv } from 'vite';
 import { createRequire } from 'node:module';
+import {getCACertificates,setDefaultCACertificates} from 'node:tls';
 import react from '@vitejs/plugin-react';
+// Preserve the default roots and include certificates trusted by Windows.
+if(process.platform==='win32')setDefaultCACertificates([...getCACertificates('default'),...getCACertificates('system')]);
 const {createClient}=createRequire(import.meta.url)('./functions/sgis.cjs');
 function sgisApi(env){
  const client=createClient(()=>({serviceId:env.SGIS_SERVICE_ID,securityKey:env.SGIS_SECURITY_KEY}));

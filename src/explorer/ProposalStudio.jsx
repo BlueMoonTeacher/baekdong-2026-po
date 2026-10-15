@@ -2,6 +2,7 @@ import React,{useCallback,useEffect,useRef,useState} from 'react';
 import {ArrowLeft,BookOpen,Check,ChevronLeft,ChevronRight,Download,Eye,FileText,MapPin,Printer,X} from 'lucide-react';
 import map from './map.json';
 import PictogramImage from './PictogramImage.jsx';
+import PolicySource from './PolicySource.jsx';
 import {channels,proposalFilename} from './proposal-domain.mjs';
 import {canvasBlob,prepareProposalImages} from './proposal-image.mjs';
 
@@ -54,7 +55,7 @@ export default function ProposalStudio({form,setForm,notes,setNotes,savedPolicie
    <div className="proposal-editor-row"><label>제안자 또는 모둠명<input maxLength={80} value={form.author||''} onChange={e=>update('author',e.target.value)} placeholder="예: 6학년 1반 함께모둠"/></label><label>살펴본 지역<select value={form.region||'양산시 전체'} onChange={e=>update('region',e.target.value)}><option>양산시 전체</option>{map.districts.map(d=><option key={d.code}>{d.name}</option>)}</select></label></div>
    <label>제안 이름<input maxLength={150} value={form.title||''} onChange={e=>update('title',e.target.value)} placeholder="예: 밤에도 도움을 찾을 수 있는 우리 동네"/></label>
    <section className="proposal-editor-section"><h3><b>1</b>기존 정책 이해</h3>
-    {basePolicy?<div className="proposal-base-info" data-policy-id={basePolicy.id}><PictogramImage name={basePolicy.category}/><div><strong>{basePolicy.title}</strong><p>원문 대상: {basePolicy.target}</p><a href={`${basePolicy.pdf}#page=${basePolicy.page}`} target="_blank" rel="noreferrer">{basePolicy.document} · PDF {basePolicy.page}쪽</a>{basePolicy.learning&&<details><summary>원문의 지원 내용</summary><ul>{basePolicy.learning.facts.map(fact=><li key={fact}>{fact}</li>)}</ul></details>}{basePolicy.conflict&&<p className="proposal-error">원문 안내가 서로 달라요. 현재 기준 확인이 필요합니다.</p>}</div><button className="proposal-icon" title="기본 정책 선택 해제" aria-label="기본 정책 선택 해제" onClick={()=>update('basePolicyId','')}><X size={18}/></button></div>:<div className="proposal-empty"><BookOpen size={22}/><span>바탕이 될 정책을 선택해 주세요.</span><button className="explore-secondary" onClick={()=>onNavigate('policies')}>정책 찾기</button></div>}
+    {basePolicy?<div className="proposal-base-info" data-policy-id={basePolicy.id}><PictogramImage name={basePolicy.category}/><div><strong>{basePolicy.title}</strong><p>원문 대상: {basePolicy.target}</p><PolicySource policy={basePolicy} worksheet compact/>{basePolicy.learning&&<details><summary>원문의 지원 내용</summary><ul>{basePolicy.learning.facts.map(fact=><li key={fact}>{fact}</li>)}</ul></details>}{basePolicy.conflict&&<p className="proposal-error">원문 안내가 서로 달라요. 현재 기준 확인이 필요합니다.</p>}</div><button className="proposal-icon" title="기본 정책 선택 해제" aria-label="기본 정책 선택 해제" onClick={()=>update('basePolicyId','')}><X size={18}/></button></div>:<div className="proposal-empty"><BookOpen size={22}/><span>바탕이 될 정책을 선택해 주세요.</span><button className="explore-secondary" onClick={()=>onNavigate('policies')}>정책 찾기</button></div>}
     {field('policySummary','정책의 도움을 우리말로 정리하기','이 정책은 어떤 도움을 주나요? 지원 대상·조건과 도움을 구분해 써요.')}
    </section>
    <section className="proposal-editor-section"><h3><b>2</b>필요한 이웃에게 전달</h3>

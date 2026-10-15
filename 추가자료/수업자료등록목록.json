@@ -300,7 +300,8 @@
         "26"
       ],
       "lessonRange": "26",
-      "description": "기존 양식 유지 · 웹앱·Gems·NotebookLM 최소 수정"
+      "description": "웹앱에서 정책 탐구·자료명·연도·PDF 쪽수 기록",
+      "previewVersion": "ec3e4d389dc1"
     },
     {
       "file": "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트3 활동지(6학년) - 27차시.pdf",
@@ -315,7 +316,8 @@
         "27"
       ],
       "lessonRange": "27",
-      "description": "기존 양식 유지 · 웹앱·Gems·NotebookLM 최소 수정"
+      "description": "기존 전체 활동 유지 · Gems로 이유와 근거의 타당성 점검",
+      "previewVersion": "e807f89f6bb2"
     },
     {
       "file": "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트3 활동지(6학년) - 28~29차시.pdf",

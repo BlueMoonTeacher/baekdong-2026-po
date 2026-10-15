@@ -22,7 +22,7 @@ test('every period has its correct project PPT and revised worksheets have PDF, 
   const worksheet=resources.find(r=>r.type==='활동지'&&r.lessonIds?.includes(String(period)));
   assert(worksheet,`${period}차시 worksheet missing`);
   assert.match(worksheet.name,/\.pdf$/i);assert.match(worksheet.editableName,/\.hwpx$/i);
-  assert(worksheet.previewImages?.length>0);assert.match(worksheet.description,/최소 수정/);
+  assert(worksheet.previewImages?.length>0);
  }
  for(const resource of resources){
   for(const path of [resource.staticPath,resource.pdfPath,resource.editablePath,...resource.previewImages||[]].filter(p=>p?.startsWith('/')))assert((await stat(publicFile(path))).size>0,path);
@@ -54,9 +54,13 @@ test('PPT and HWP originals use verified Storage records while PDF previews stay
  assert.throws(()=>publishedOriginal({...storageCatalog,bucket:'unexpected-bucket'},common[0].sourceFile),/Invalid published material/);
 });
 
-test('web app and AI revision scope begins at period 26',()=>{
+test('policy inquiry revision stays within periods 26-30 and uses the shared WARM structure',()=>{
  for(const lesson of lessons){
-  if(lesson.number<26)assert.notEqual(lesson.detailVersion,'policy-socratic-2026');
-  else {assert.equal(lesson.detailVersion,'policy-socratic-2026');assert(lesson.detail.some(s=>s.includes('Gems')));assert(lesson.detail.some(s=>s.includes('NotebookLM')));}
+  if(lesson.number<26)assert.notEqual(lesson.detailVersion,'policy-inquiry-2026');
+  else {
+   assert.equal(lesson.detailVersion,'policy-inquiry-2026');
+   assert(lesson.title.endsWith('하기'));
+   for(const stage of ['Wonder','Analyze','Realize','Meditate'])assert(lesson.detail.includes(stage));
+  }
  }
 });

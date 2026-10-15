@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useCallback,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
-import {LayoutDashboard,CalendarDays,ListChecks,MessagesSquare,FolderOpen,Settings,Plus,ChevronLeft,ChevronRight,Download,ExternalLink,X,Check,LogOut,BookOpen,Users,Clock,ArrowUpRight,Paperclip,Menu,Trash2,Pencil,Search,Cloud,Copy,Upload,CheckCircle2,MessageCircle,MapPinned,HeartHandshake,PackageOpen,ChartNoAxesCombined,School} from 'lucide-react';
+import {LayoutDashboard,CalendarDays,ListChecks,MessagesSquare,FolderOpen,Settings,Plus,ChevronLeft,ChevronRight,Download,ExternalLink,X,Check,LogOut,BookOpen,Users,Clock,ArrowUpRight,Paperclip,Menu,Trash2,Pencil,Search,Cloud,Copy,Upload,CheckCircle2,MessageCircle,MapPinned,HeartHandshake,PackageOpen,ChartNoAxesCombined,School,Sparkles} from 'lucide-react';
 import {ref,uploadBytes,getBlob,deleteObject} from 'firebase/storage';
 import {auth,storage,login,logout,onAuthStateChanged} from './firebase';
 import {useWorkspace} from './useWorkspace';
@@ -29,6 +29,7 @@ import {eventBlocks,periodLabel} from './lesson-periods';
 const Explorer=React.lazy(()=>import('./explorer/Explorer.jsx'));
 const planMaterial=commonMaterials.find(r=>r.id==='plan');
 const lessonPlanMaterial=commonMaterials.find(r=>r.id==='lessons');
+const GEMS_DESIGNER_URL='https://gemini.google.com/gem/10qcW9PyK8lxpNDxfFAQM2AoVJO6vH7Oi?usp=sharing';
 
 const nav=[['overview','한눈에 보기',LayoutDashboard],['calendar','수업 달력',CalendarDays],['progress','반별 진행도',ListChecks],['discussions','함께 논의하기',MessagesSquare],['resources','수업 자료실',FolderOpen],['settings','학년 설정',Settings]];
 const statusText={open:'논의 중',agreed:'합의 완료',done:'실행 완료'};
@@ -65,7 +66,12 @@ function App(){
  const shownNav=nav.filter(n=>(n[0]!=='settings'||(canEdit&&role==='admin'))&&(!['calendar','progress'].includes(n[0])||canEdit));
  return <div className="app public-app">
   <header className="school-header"><div className="school-title"><img className="school-logo" src="/images/baekdong-school-logo-transparent.png" alt="백동초등학교 교표"/><div className="school-identity"><span>백동초등학교</span><h1>인구교육 정책연구학교 2차년도 수업자료 - 6학년</h1></div></div><div className="header-login">{user?<><span className="editing-label"><Pencil size={14}/> 편집 가능</span><span className="signed-name">{user.displayName||'선생님'}</span><button className="secondary login-button" onClick={()=>perform(logout)}><LogOut size={16}/>로그아웃</button></>:<><span className="viewing-label">누구나 조회 · 자료 다운로드</span><button className="secondary login-button" disabled={busy} onClick={signIn}><span className="google">G</span> Google 로그인</button></>}</div></header>
-  <div className="school-nav"><nav>{shownNav.map(([id,label,Icon])=><button key={id} className={page===id?'active':''} onClick={()=>navigate(id)}><Icon size={17}/>{titles[id]}{id==='discussions'&&Object.values(data.discussions).some(d=>d.status==='open')&&<span className="nav-count">{Object.values(data.discussions).filter(d=>d.status==='open').length}</span>}</button>)}<a href="/explore" className="explorer-nav-link"><img className="explore-link-logo" src="/images/yangsan-city-logo.png" alt=""/>양산시 인구 살펴보기<ArrowUpRight size={14}/></a></nav><span className="shared-state"><Cloud size={15}/>{connectionError?'기록 연결 확인 필요':ready?'함께 보는 수업 기록':'기록 불러오는 중…'}</span></div>
+  <div className="school-nav"><nav>{shownNav.map(([id,label,Icon])=><button key={id} className={page===id?'active':''} onClick={()=>navigate(id)}><Icon size={17}/>{titles[id]}{id==='discussions'&&Object.values(data.discussions).some(d=>d.status==='open')&&<span className="nav-count">{Object.values(data.discussions).filter(d=>d.status==='open').length}</span>}</button>)}<a href="/explore" className="explorer-nav-link"><img className="explore-link-logo" src="/images/yangsan-city-logo.png" alt=""/>양산시 인구 살펴보기<ArrowUpRight size={14}/></a>
+   <div className="gems-designer-nav" role="group" aria-label="AI Gems 디자이너">
+    <a className="gems-designer-open" href={GEMS_DESIGNER_URL} target="_blank" rel="noreferrer" aria-label="AI Gems 디자이너 바로가기" title="AI Gems 디자이너 새 창에서 열기"><Sparkles size={16}/><span>AI Gems 디자이너</span><ArrowUpRight size={15}/></a>
+    <button type="button" className="gems-designer-copy" aria-label="AI Gems 디자이너 링크 복사" title="AI Gems 디자이너 링크 복사" onClick={()=>perform(()=>navigator.clipboard.writeText(GEMS_DESIGNER_URL),'AI Gems 디자이너 링크를 복사했습니다.')}><Copy size={15}/></button>
+   </div>
+  </nav><span className="shared-state"><Cloud size={15}/>{connectionError?'기록 연결 확인 필요':ready?'함께 보는 수업 기록':'기록 불러오는 중…'}</span></div>
   <div className="semester-banner"><h2>미래설계 인구교육</h2></div>
   <main>
    {connectionError&&<p className="form-error" role="alert">수업 기록을 불러오지 못했습니다. 연결을 확인하고 새로고침해 주세요.</p>}

@@ -171,6 +171,12 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .class-strip .class-strip-stat b{font-size:.78rem;color:#5d7683;font-weight:500}.class-strip .class-strip-stat strong{font-size:1.35rem;color:#1c8298;margin:8px 0}
 @media(max-width:600px){.private-plan{padding:16px;gap:10px}.class-strip .class-strip-stat{min-width:calc(30% - 7px);border:1px solid #dfeaed;border-radius:7px;padding:10px}}
 .explore-link-logo{width:18px;height:18px;object-fit:contain;display:block}
+.gems-designer-nav{display:inline-flex;align-items:stretch;flex-shrink:0;overflow:hidden;border:1px solid #ddd1f0;border-radius:9px;background:#f6f0ff;color:#694594;white-space:nowrap}
+.school-nav nav .gems-designer-open{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;color:inherit;font-size:.77rem;font-weight:700;min-height:34px}
+.school-nav nav .gems-designer-copy{display:inline-flex;align-items:center;justify-content:center;width:34px;min-height:34px;padding:0;border:0;border-left:1px solid #ddd1f0;border-radius:0;background:transparent;color:inherit;flex-shrink:0}
+.school-nav nav .gems-designer-open:hover,.school-nav nav .gems-designer-copy:hover{background:#ebe0fc}
+.gems-designer-open:focus-visible,.gems-designer-copy:focus-visible{outline:2px solid #694594;outline-offset:-3px}
+@media(max-width:600px){.school-nav nav .gems-designer-open{font-size:.7rem;padding:7px 9px}}
 .class-strip .class-strip-stat{width:auto}
 .modal-body input[readonly],.settings-class-row input[readonly]{background:#f3f7f8;color:#71818b;cursor:default}
 @media(max-width:600px){.planner-top{flex-wrap:wrap}.plan-downloads{flex-wrap:wrap;max-width:100%}}

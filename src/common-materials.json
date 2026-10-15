@@ -7,10 +7,10 @@
     "sourceFile": "공통자료/인구교육 프로젝트 수업 계획 및 논의 사항 정리.hwpx",
     "project": 0,
     "lessonId": "",
-    "staticPath": "https://firebasestorage.googleapis.com/v0/b/baekdong-population-2026.firebasestorage.app/o/materials%2Fplan-96c2bd8bdfd8%2Fplan.hwpx?alt=media",
-    "storageObject": "materials/plan-96c2bd8bdfd8/plan.hwpx",
-    "storageSha256": "96c2bd8bdfd8aaba883cfcf86adb99a9b80fbec5303176cef45ee08330bc7c12",
-    "size": 246392
+    "staticPath": "https://firebasestorage.googleapis.com/v0/b/baekdong-population-2026.firebasestorage.app/o/materials%2Fplan-f15487eea053%2Fplan.hwpx?alt=media",
+    "storageObject": "materials/plan-f15487eea053/plan.hwpx",
+    "storageSha256": "f15487eea05397083397b2e84668d1835d814ee34bee1197679881841223d4d7",
+    "size": 245219
   },
   {
     "id": "lessons",
@@ -20,10 +20,10 @@
     "sourceFile": "2026_인구교육_26~30차시_개정본/[서식3] 2026. 6학년 인구교육 프로젝트 수업 과정안(프로젝트1~3)_프로젝트교환_26~30차시연계.hwpx",
     "project": 0,
     "lessonId": "",
-    "staticPath": "https://firebasestorage.googleapis.com/v0/b/baekdong-population-2026.firebasestorage.app/o/materials%2Flessons-846b752f424b%2Flessons.hwpx?alt=media",
-    "storageObject": "materials/lessons-846b752f424b/lessons.hwpx",
-    "storageSha256": "846b752f424b87e5092c38134598982ac3c94fee660ab2b6c1363e3dbe4b0981",
-    "size": 476230,
+    "staticPath": "https://firebasestorage.googleapis.com/v0/b/baekdong-population-2026.firebasestorage.app/o/materials%2Flessons-deb05313220e%2Flessons.hwpx?alt=media",
+    "storageObject": "materials/lessons-deb05313220e/lessons.hwpx",
+    "storageSha256": "deb05313220ed00ab7216153dbdcdc1a13ea7fc151384c2ae0b0b53bb280c801",
+    "size": 476415,
     "pdfPath": "/materials/lesson-plan.pdf"
   }
 ]

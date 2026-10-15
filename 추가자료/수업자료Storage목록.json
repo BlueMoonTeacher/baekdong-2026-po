@@ -98,14 +98,6 @@
       "md5Hash": "+cTgoPnymaJcXgTp2G5/Jg==",
       "generation": "1791731519333475"
     },
-    "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트3 활동지(6학년) - 26차시.hwpx": {
-      "object": "materials/local-2a82f899a57024cc-854d7ba09388/local-2a82f899a57024cc.hwpx",
-      "name": "인구교육 프로젝트3 활동지(6학년) - 26차시.hwpx",
-      "size": 41432,
-      "sha256": "854d7ba0938833ac8947d6c8c50c39462726bbeed807bf2c795cd2127b923e4e",
-      "md5Hash": "HbOEa8c/eaJHd3ILaAECOA==",
-      "generation": "1791731519644322"
-    },
     "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트3 활동지(6학년) - 21~22차시.hwpx": {
       "object": "materials/local-f3424b21009f2dad-08093b3b2112/local-f3424b21009f2dad.hwpx",
       "name": "인구교육 프로젝트3 활동지(6학년) - 21~22차시.hwpx",
@@ -113,14 +105,6 @@
       "sha256": "08093b3b2112f88ef445cdb41b2a35e1b70fbaccd007fe45e68ade2f4bdd5d19",
       "md5Hash": "VXm2r9hESKpRj+Bh22VEAQ==",
       "generation": "1791731519706776"
-    },
-    "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트3 활동지(6학년) - 27차시.hwpx": {
-      "object": "materials/local-b40ad04828698042-99762b0a1386/local-b40ad04828698042.hwpx",
-      "name": "인구교육 프로젝트3 활동지(6학년) - 27차시.hwpx",
-      "size": 41663,
-      "sha256": "99762b0a13861a2e4a4fab59aba67f5f4b186075375abd75def3d52ac001f74e",
-      "md5Hash": "xraeGsfXRE++QH9K9YVN4A==",
-      "generation": "1791731519805584"
     },
     "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트3 활동지(6학년) - 28~29차시.hwpx": {
       "object": "materials/local-ba4b3fd4132631fd-e437c82cdf2f/local-ba4b3fd4132631fd.hwpx",
@@ -162,21 +146,37 @@
       "md5Hash": "EWeNQ97SsFpRQCOtC5Q4Og==",
       "generation": "1791731520533891"
     },
+    "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트3 활동지(6학년) - 27차시.hwpx": {
+      "object": "materials/local-b40ad04828698042-93b0192bf7b3/local-b40ad04828698042.hwpx",
+      "name": "인구교육 프로젝트3 활동지(6학년) - 27차시.hwpx",
+      "size": 100267,
+      "sha256": "93b0192bf7b3613ee210a946ff1f1fdebee101a5d8b75b2e84110b2f48fc4c3f",
+      "md5Hash": "FIzgJDB7jfqYL/EU6J1w3A==",
+      "generation": "1792070923003371"
+    },
+    "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트3 활동지(6학년) - 26차시.hwpx": {
+      "object": "materials/local-2a82f899a57024cc-7e5f1cd9ad9d/local-2a82f899a57024cc.hwpx",
+      "name": "인구교육 프로젝트3 활동지(6학년) - 26차시.hwpx",
+      "size": 101991,
+      "sha256": "7e5f1cd9ad9d0ac4c9541f2266511e68276cc409d9d690fdf4e4d52c3dd00307",
+      "md5Hash": "XiQoOFB8AfCCuvi7dpOPlQ==",
+      "generation": "1792070923137740"
+    },
     "공통자료/인구교육 프로젝트 수업 계획 및 논의 사항 정리.hwpx": {
-      "object": "materials/plan-96c2bd8bdfd8/plan.hwpx",
+      "object": "materials/plan-f15487eea053/plan.hwpx",
       "name": "인구교육 프로젝트 수업 계획 및 논의 사항 정리.hwpx",
-      "size": 246392,
-      "sha256": "96c2bd8bdfd8aaba883cfcf86adb99a9b80fbec5303176cef45ee08330bc7c12",
-      "md5Hash": "hK25KZKhKCoxriCexlSQXg==",
-      "generation": "1791731520805278"
+      "size": 245219,
+      "sha256": "f15487eea05397083397b2e84668d1835d814ee34bee1197679881841223d4d7",
+      "md5Hash": "u3EEtr/bN6kKJK88nOBAEQ==",
+      "generation": "1792070923182512"
     },
     "2026_인구교육_26~30차시_개정본/[서식3] 2026. 6학년 인구교육 프로젝트 수업 과정안(프로젝트1~3)_프로젝트교환_26~30차시연계.hwpx": {
-      "object": "materials/lessons-846b752f424b/lessons.hwpx",
+      "object": "materials/lessons-deb05313220e/lessons.hwpx",
       "name": "[서식3] 2026. 6학년 인구교육 프로젝트 수업 과정안(프로젝트1~3)_프로젝트교환_26~30차시연계.hwpx",
-      "size": 476230,
-      "sha256": "846b752f424b87e5092c38134598982ac3c94fee660ab2b6c1363e3dbe4b0981",
-      "md5Hash": "ZghGSMJRQcf5ADnoEwtu2g==",
-      "generation": "1791731520911098"
+      "size": 476415,
+      "sha256": "deb05313220ed00ab7216153dbdcdc1a13ea7fc151384c2ae0b0b53bb280c801",
+      "md5Hash": "yDUNuYYSSNPTVn3U0EqChA==",
+      "generation": "1792070923476151"
     },
     "2026_인구교육_26~30차시_개정본/차시별 활동지/인구교육 프로젝트1 활동지(6학년) - 5차시.hwpx": {
       "object": "materials/local-34d0736d1d97897f-68dd2913ac4f/local-34d0736d1d97897f.hwpx",

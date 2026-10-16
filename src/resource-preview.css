@@ -16,6 +16,12 @@
 .preview-page{padding:20px;overflow:auto;min-height:0;flex:1}
 .preview-page>img{display:block;width:100%;height:auto;background:white;box-shadow:0 3px 15px #15334220}
 .resource-preview.preview-lesson-plan{height:94dvh}
+.resource-preview.preview-live-pdf{height:94dvh}
+.preview-page>canvas{display:block;width:100%;height:auto;background:white;box-shadow:0 3px 15px #15334220}
+.preview-guide-fit>canvas{width:auto;max-width:100%;height:100%;object-fit:contain;box-shadow:none}
+.preview-guide-expanded>canvas{width:100%;height:auto}
+.preview-loading{position:absolute;align-self:center;background:#fff;padding:12px 20px;border-radius:8px}
+.preview-source-notice{margin:0;padding:12px 24px;background:#fffae9;color:#7e5f25;font-size:.82rem;line-height:1.7}
 .preview-plan-info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 12px;padding:10px 24px;background:#eef7fa;border-bottom:1px solid #dce7eb;flex-shrink:0}
 .preview-plan-info p{margin:0;font-size:.84rem;line-height:1.6;color:#284e60;word-break:keep-all}
 .preview-plan-info small{grid-column:1;font-size:.73rem;line-height:1.6;color:#647987}
@@ -31,4 +37,5 @@
 .materials-cell .material-preview-button{color:#156a7e;background:#eaf5f7}
 .resource-actions{flex-wrap:wrap}
 .preview-icon-button{width:36px;min-height:36px;padding:8px;justify-content:center}
+.preview-label-button{width:auto;min-height:34px;white-space:nowrap;justify-content:center}
 @media(max-width:600px){.resource-preview{width:calc(100vw - 16px);max-height:96dvh;border-radius:10px}.resource-preview .resource-preview-header{padding:14px;gap:12px}.resource-preview .resource-preview-title h2{font-size:.95rem}.preview-toolbar{padding:10px 14px}.preview-page{padding:8px}.preview-downloads{gap:5px;flex-wrap:wrap}.preview-downloads .secondary{font-size:.7rem;padding:7px}}

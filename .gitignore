@@ -14,6 +14,7 @@ functions/node_modules/
 artifacts/
 /tmp/pdfs/
 /output/pdf/
+/public/pdfjs/
 # Downloadable originals are published to Firebase Storage and kept locally.
 *.ppt
 *.pptx

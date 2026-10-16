@@ -5,24 +5,26 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "prebuild": "node scripts/sync-materials.mjs",
+    "prebuild": "node scripts/prepare-pdf-viewer.mjs && node scripts/sync-materials.mjs",
     "build": "vite build",
     "deploy": "npm run build && firebase deploy --only hosting",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs",
     "materials:publish": "node scripts/publish-material-originals.cjs",
     "materials:restore": "node scripts/restore-material-originals.mjs",
-    "plans:prepare": "python scripts/prepare-lesson-plans.py"
+    "plans:prepare": "python scripts/prepare-lesson-plans.py",
+    "predev": "node scripts/prepare-pdf-viewer.mjs"
   },
   "dependencies": {
     "fflate": "^0.8.3",
     "firebase": "^12.10.0",
     "lucide-react": "^0.468.0",
+    "pdfjs-dist": "^6.4.299",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "vite": "^6.4.1",
-    "@vitejs/plugin-react": "^4.4.1"
+    "@vitejs/plugin-react": "^4.4.1",
+    "vite": "^6.4.1"
   }
 }

@@ -8,6 +8,10 @@ export function resourceMatchesLesson(resource,lesson) {
 
 export function materialCells(rows,resources) {
  const cells=rows.map(lesson=>({resources:resources.filter(r=>resourceMatchesLesson(r,lesson)),rowSpan:1,hidden:false}));
+ return mergeMaterialCells(rows,cells);
+}
+
+export function mergeMaterialCells(rows,cells) {
  for(let i=0;i<rows.length;i++) {
   if(cells[i].hidden||!cells[i].resources.some(r=>r.lessonIds?.length>1))continue;
   const key=JSON.stringify(cells[i].resources.map(r=>r.id));
